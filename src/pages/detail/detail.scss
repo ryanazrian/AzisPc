@@ -1,0 +1,22 @@
+page-detail {
+    .judul {
+        text-align: center;
+    }
+
+    pre {
+        font-family: roboto;
+    }
+
+    .iconable{
+        color: black;
+    }
+
+    .icondisable{
+        color: gray;
+    }
+
+    ion-icon {
+        font-size: 40px; //Preferred size here
+    }
+
+}

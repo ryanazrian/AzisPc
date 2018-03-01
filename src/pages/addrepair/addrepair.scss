@@ -1,0 +1,17 @@
+page-addrepair {
+    .head{
+        color: blueviolet;
+    }
+
+    #map {
+        width: 100%;
+        height: 40%;
+      }
+
+    .background {
+        //background-image: url('../assets/pict/welcome.png');
+        background-color: $azizbg;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}

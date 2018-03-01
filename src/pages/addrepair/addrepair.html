@@ -1,0 +1,81 @@
+<!--
+  Generated template for the AddrepairPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header color="aziznav">
+
+  <ion-navbar color="nav">
+    <ion-title>Tambah Servis</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="background">
+    <form #repairForm="ngForm" novalidate>        
+          <ion-list>
+            <h5 class="head">Nama Barang</h5>
+            <ion-item>
+              <ion-input type="text" [(ngModel)]="namaBarang"  [ngModelOptions]="{standalone: true}"placeholder="Ex. Laptop Asus ROG Gx600"></ion-input>
+            </ion-item>
+
+            <h5 class="head">Keluhan</h5>
+            <ion-item>
+              <ion-textarea [(ngModel)]="keluhan"  [ngModelOptions]="{standalone: true}" placeholder="Keluhan Ananda"></ion-textarea>
+            </ion-item>
+
+            <h5 class="head"> Kelengkapan Barang</h5>
+            <ion-list>
+              <ion-item>
+                <ion-label>Charger</ion-label>
+                <ion-checkbox [(ngModel)]="charger" value="charger" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+              </ion-item>
+              <ion-item>
+                <ion-label>Maouse</ion-label>
+                <ion-checkbox [(ngModel)]="mouse" value="mouse"[ngModelOptions]="{standalone: true}"></ion-checkbox>
+              </ion-item>
+              <ion-item>
+                <ion-label>Tas</ion-label>
+                <ion-checkbox [(ngModel)]="mushrooms" value="mushrooms" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+              </ion-item>
+              <ion-item>
+                <ion-label>CD/Driver</ion-label>
+                <ion-checkbox [(ngModel)]="cd" value="cd" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+              </ion-item>
+            </ion-list>
+
+            <h5 class="head">Jenis Servis </h5>
+            <ion-item>
+                <ion-label>Jenis Service</ion-label>
+                <ion-select [(ngModel)]="service" [ngModelOptions]="{standalone: true}" multiple="true">
+                  <ion-option value="Install Ulang">Install Ulang OS</ion-option>
+                  <ion-option value="HDD Bad Sector">HDD Bad Sector</ion-option>
+                  <ion-option value="Recovery">Recovery Data</ion-option>
+                  <ion-option value="Ganti LCD">Ganti HDD/LED/LCD</ion-option>
+                  <ion-option value="Upgrade Memory">Upgrade Memory</ion-option>
+                  <ion-option value="Mati Total">Mati Total</ion-option>
+                  <ion-option value="Blue Screen">Blue Screen</ion-option>
+                  <ion-option value="Membersihkan Laptop">Membersihkan Laptop/NB/PC</ion-option>
+                  <ion-option value="Ganti Fan">Ganti Fan</ion-option>
+                  <ion-option value="Ganti Mainboard">Ganti Mainboard/Keybiard/Casing</ion-option>
+                  <ion-option value="Service Panggilan">Service Panggilan</ion-option>
+                </ion-select>
+              </ion-item>
+
+              <h5 class="head">Alamat Penjemputan</h5>
+              <ion-item>
+                <ion-input type="text" [(ngModel)]="alamat"  [ngModelOptions]="{standalone: true}" placeholder="Ex. IPB dramaga"></ion-input>
+              </ion-item>
+
+              <h5 class="head">Unggah Foto Barang</h5>
+              <button ion-button icon-left (click)="tambahGambar()">
+                <ion-icon name="camera"></ion-icon>
+                Ambil Foto
+              </button>
+          </ion-list>
+    </form>
+    <div #map id="map"></div>                  
+    <button (click)="repair(repairForm)" ion-button full>Submit</button>
+</ion-content>

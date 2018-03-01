@@ -1,0 +1,142 @@
+<!--
+  Generated template for the DetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="nav">
+    <ion-title>detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <img src="assets/imgs/rusak.jpeg"/><br/>
+  <div padding>
+    <h2 class="judul"> {{data.namaBarang}} </h2>
+      <!-- <div class="row">
+        <div col-4>Nomor Telepon</div>
+        <div col-1>:</div>
+        <div col-7>{{09888888888}}</div>
+      </div> -->
+      <div class="row">
+        <div col-4>Tanggal masuk</div>
+        <div col-1>:</div>
+        <div col-7>{{data.dateIn}}</div>
+      </div>
+      <div class="row">
+        <div col-4>Tanggal selesai</div>
+        <div col-1>:</div>
+        <div col-7>-</div>
+      </div>
+      <div class="row">
+        <div col-4>Kelengkapan</div>
+        <div col-1>:</div>
+        <div col-7> {{data.kelengkapan}}</div>
+      </div>
+      <div class="row">
+        <div col-4>Jenis servis</div>
+        <div col-1>:</div>
+        <div col-7>{{data.tipeKerusakan}}</div>
+      </div>
+      <div class="row">
+        <div col-4>Total biaya</div>
+        <div col-1>:</div>
+        <div col-7>-</div>
+      </div>
+    </div>
+    
+    <h2 class="judul"> Progres </h2>
+    <ion-list>
+
+      <ion-item class="iconable" [hidden]="!jemput">
+        <ion-avatar item-start>
+          <ion-icon name="checkmark" item-end></ion-icon>
+        </ion-avatar>
+        <h2>Penjemputan</h2>
+        <h3>Tanggal - </h3>
+      </ion-item>
+      <ion-item class="icondisable" [hidden]="jemput">
+        <ion-avatar item-start>
+          <ion-icon name="close" item-end></ion-icon>
+        </ion-avatar>
+        <h2>Penjemputan</h2>
+        <h3>Tanggal - </h3>
+      </ion-item>
+
+      <ion-item class="iconable" [hidden]="!diagnosa">
+        <ion-avatar item-start>
+          <ion-icon name="checkmark" item-end></ion-icon>
+        </ion-avatar>
+        <h2>Diagnosa</h2>
+        <h3>Tanggal : -</h3>
+      </ion-item>
+      <ion-item class="icondisable" [hidden]="diagnosa">
+          <ion-avatar item-start>
+            <ion-icon name="close" item-end></ion-icon>
+          </ion-avatar>
+          <h2>Diagnosa</h2>
+          <h3>Tanggal : -</h3>
+        </ion-item>
+
+      <ion-item class="iconable" [hidden]="!konfirmasi">
+        <ion-avatar item-start>
+          <ion-icon name="checkmark" item-end></ion-icon>
+        </ion-avatar>
+        <h2>Konfirmasi</h2>
+        <h3>Tanggal : -</h3>
+        <h3>Harga   : -</h3>
+        <button ion-button color="secondary" [disabled]="!konfirmasi" (click)="Terima()">Terima</button>
+        <button ion-button color="danger" [disabled]="!konfirmasi" (click)="Batal()">Batal</button>
+      </ion-item>
+      <ion-item class="icondisable" [hidden]="konfirmasi">
+        <ion-avatar item-start>
+          <ion-icon name="close" item-end></ion-icon>
+        </ion-avatar>
+        <h2>Konfirmasi</h2>
+        <h3>Tanggal : -</h3>
+        <h3>Harga   : -</h3>
+        <button ion-button color="secondary" [disabled]="konfirmasi">Terima</button>
+        <button ion-button color="danger" [disabled]="konfirmasi">Batal</button>
+      </ion-item>
+
+      <ion-item class="iconable" [hidden]="!reparasi">
+        <ion-avatar item-start>
+          <ion-icon name="checkmark" item-end></ion-icon>
+        </ion-avatar>
+        <h2>Reparasi</h2>
+        <h3>Tanggal : -</h3>
+      </ion-item>
+      <ion-item class="icondisable" [hidden]="reparasi">
+        <ion-avatar item-start>
+          <ion-icon name="close" item-end></ion-icon>
+        </ion-avatar>
+        <h2>Reparasi</h2>
+        <h3>Tanggal : -</h3>
+      </ion-item>
+
+      <ion-item class="iconable" [hidden]="!selesai">
+        <ion-avatar item-start>
+          <ion-icon name="checkmark" item-end></ion-icon>
+        </ion-avatar>
+        <h2>Selesai</h2>
+        <h3>Tanggal : -</h3>
+        <h3>Garansi : -</h3>
+      </ion-item>
+      <ion-item class="icondisable" [hidden]="selesai">
+        <ion-avatar item-start>
+          <ion-icon name="close" item-end></ion-icon>
+        </ion-avatar>
+        <h2>Selesai</h2>
+        <h3>Tanggal : -</h3>
+        <h3>Garansi : -</h3>
+      </ion-item>
+      
+      <div padding (click)="review()">
+        <button ion-button block padding [disabled]="false">Reveiw</button>
+      </div>
+    </ion-list>
+</ion-content>

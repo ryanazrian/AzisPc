@@ -1,0 +1,53 @@
+page-login {
+    .Logo {
+        height: 40vw; 
+        width: 40vw; 
+        display: block; 
+        margin: auto;
+        margin-top: 7vw;
+    }
+
+    .icon {
+        font-size:7vw;
+        float:right;
+    }
+    
+    .tombol {
+        height: 7vw !important;
+        color: gray;
+
+        position: relative;
+        top: 5vw;
+        // width: 100%;
+    }  
+
+    .ButtonMasuk {
+        height: 10vw !important;
+        // width: 100%;
+    }
+
+    .ButtonWord {
+        font-size: 5vw;
+        color: white;
+    }
+
+    .Warning {
+        font-size: 5vw;
+    }
+
+    .Head {
+        font-size: 5vw;
+        color: #202020;
+    }
+    .Head2 {
+        font-size: 5vw;
+        color: gray;
+    }
+    .Link {
+        font-size: 5vw;
+        color: #1e99d0;
+    }
+    ion-title{
+        text-align: center;
+    }
+}

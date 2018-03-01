@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="nav">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>  
+<ion-content>
+  <div class="photoprofile">
+    <ion-icon name="camera" class="editIcon" (click)="takePhoto()"></ion-icon>
+    <img src="assets/imgs/logo.png" *ngIf="!image" class="Pict"/>
+  </div>
+    <img [src]="image" *ngIf="image"/>  
+    <ion-item padding-right text-wrap>
+      <p class="Nama">{{nama}}</p>
+    </ion-item>
+    <ion-item padding-right text-wrap>
+      <ion-icon name="mail" item-left class="IconMail"></ion-icon>
+      <p class="Head">Email</p>
+      <p class="Konten">{{email}}</p>
+    </ion-item>
+    <ion-item padding-right text-wrap>
+      <ion-icon name="call" item-left class="Icon"></ion-icon>
+      <p class="Head">Nomor Telepon</p>
+      <p class="Konten">{{hp}}</p>
+    </ion-item>
+    <ion-item padding-right text-wrap>
+      <ion-icon name="md-map" item-left class="Icon"></ion-icon>
+      <p class="Head">Alamat</p>
+      <p class="Konten">{{alamat}}</p>
+    </ion-item>
+    <ion-item padding-left-right>
+      <button class='Button' color="AyoDermawan" ion-button block (click)='editProfil()'><p class="ButtonWordWhite">Sunting Profil</p></button>
+      <button class='Button' color="danger" ion-button outline block (click)='logOut()'><p class="ButtonWordBlack">Keluar Akun</p></button>
+    </ion-item>
+</ion-content>
+    

@@ -1,0 +1,36 @@
+page-register {
+    ion-title{
+        text-align: center;
+    }
+    .title{
+        text-align: center;
+        font-size:8vw;
+        font-weight:lighter;
+        padding-top:3vw;
+    }
+    .Head {
+        font-size: 5vw;
+        color: #202020;
+    }
+    .Head2 {
+        font-size: 5vw;
+        color: gray;
+    }
+    .Link {
+        font-size: 5vw;
+        color: #1e99d0;
+    }
+    .tombol {
+        height: 7vw !important;
+        color: gray;
+
+        position: relative;
+        top: 5vw;
+        // width: 100%;
+    }
+    .icon {
+        font-size:7vw;
+        
+        float:right;
+    }
+}

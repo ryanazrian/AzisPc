@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="nav">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>  
+<ion-content>
+
+  <div class="photoprofile">
+    <ion-icon name="camera" class="editIcon"></ion-icon>
+    <img src="assets/imgs/logo.png" *ngIf="!image" class="Pict"/>
+  </div>
+    <img [src]="image" *ngIf="image"/>
+    <form #editForm="ngForm" novalidate>        
+        <ion-item padding-right text-wrap>
+          <ion-input class="konten" value = "{{nama}}" [(ngModel)]="nama" [ngModelOptions]="{standalone: true}"> </ion-input>
+        </ion-item>
+        <ion-item padding-right text-wrap>
+          <ion-icon name="mail" item-left class="IconMail"></ion-icon>
+          <p class="Head">Email</p>
+          <p class="Konten">{{email}}</p>
+        </ion-item>
+        <ion-item padding-right text-wrap>
+          <ion-icon name="call" item-left class="Icon"></ion-icon>
+          <p class="Head">Nomor Telepon</p>
+          <ion-input class="masuk" value = "{{hp}}" [(ngModel)]="hp" [ngModelOptions]="{standalone: true}"> </ion-input>
+        </ion-item>
+        <ion-item padding-right text-wrap>
+          <ion-icon name="md-map" item-left class="Icon"></ion-icon>
+          <p class="Head">Alamat</p>
+          <ion-input class="masuk" value = "{{alamat}}" [(ngModel)]="alamat" [ngModelOptions]="{standalone: true}"> </ion-input>
+        </ion-item>
+        <ion-item padding-left-right>
+          <button class='Button' color="AyoDermawan" ion-button block (click)='editProfil(editForm)'><p class="ButtonWordWhite">Sunting</p></button>
+        </ion-item>
+    </form>
+</ion-content>
+    

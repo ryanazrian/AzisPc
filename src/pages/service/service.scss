@@ -1,0 +1,52 @@
+page-service {
+    ion-slides{
+        height: 30vh;
+    }
+
+    .navbackground{
+        background-color: #5B81C1;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .background {
+        //background-image: url('../assets/pict/welcome.png');
+        background-color: $azizbg;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .image{
+        vertical-align: middle;
+        width: 50vw;
+        min-height: 100%;
+    }
+
+    .judul{
+        font-size: 5vw;
+        text-align: center;
+        margin: auto;
+        font-weight: 1000;
+    }
+
+    .isi{
+        padding: 0vw 0vw 0 2vw;
+        font-size: 4vw;
+        text-align: left;
+
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+
+    .kartu{
+        margin: 10 10 0 0;
+    }
+
+    .review{
+        font-size: 5vw;
+        color: #5B81C1;
+        padding: 0vw 0vw 0 2vw;
+    }
+}

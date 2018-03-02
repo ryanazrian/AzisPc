@@ -27,6 +27,7 @@ export class ProfilePage {
   alamat : string;
 
   token : any;
+  image : any;
 
   public photos: any;
   public base64Image: string;
@@ -45,32 +46,14 @@ export class ProfilePage {
                 this.email = this.datas.email;
                 this.hp = this.datas.hp;
                 this.alamat = this.datas.alamat;
+                this.image ="http://azizpc.codepanda.web.id/"+ this.datas.foto;
           
-                console.log(this.datas.alamat)
+                console.log(this.datas)
               })
-              this.getToken();             
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
-  }
-
-  getToken(){
-    this.data.getToken().then((data)=>{
-    this.token = data;
-    this.getData();
-    });
-    
-  }
-
-  getData(){
-    let headers = new Headers({ 'Content-Type': 'application/json', 'Accept' : 'application/json', 'Authorization' : 'Bearer ' + this.token });
-    let options = new RequestOptions({ headers: headers });
-
-    this.http.get(this.data.link_hosting+"users/profile", options).subscribe(data =>{
-      let response = data.json();
-      console.log(response);
-    })
   }
 
 

@@ -29,6 +29,7 @@ export class EditProfilePage {
   id : string;
 
   image : any;
+  percentageLoaded: any
 
   submitted = false;  
   datas : any;
@@ -53,6 +54,7 @@ export class EditProfilePage {
               this.hp = this.datas.hp;
               this.email = this.datas.email;
               this.id = this.datas.id;
+              this.image ="http://azizpc.codepanda.web.id/"+ this.datas.foto;
               console.log(this.datas.id);
               this.getToken();
   }
@@ -189,17 +191,36 @@ export class EditProfilePage {
       postPhoto(data){
         // alert(data);
         // alert("token" + this.token);
-        let loading = this.loadCtrl.create({
-          content: 'memuat..'
-        });
-    
-        loading.present();
-    
-        setTimeout(() => {
-          loading.dismiss();
-        }, 5000);
-        // api
         const fileTransfer: FileTransferObject = this.transfer.create();
+
+        let alert = this.alertCtrl.create({
+          subTitle: 'Uploading... 0%',
+          buttons: ['Hold on for a few seconds...']
+        });
+        alert.present();
+    
+        fileTransfer.onProgress((progress) => {
+          if(progress.lengthComputable) {
+            this.percentageLoaded = (progress.loaded / progress.total) * 100;
+            console.log('Percentage -> ' + this.percentageLoaded)
+            const elem = document.querySelector("h3.alert-sub-title");
+            const alertBt = document.querySelector("button.alert-button");
+    
+            if(this.percentageLoaded < 100) {
+              if(elem) elem.innerHTML = '<span style="font-size: 16px; font-weight: bold;">Uploading... ' + this.percentageLoaded.toFixed(0) + '%</span><br>' +
+              '<div style="width: 100%;margin: 10px 0 0 0;padding: 0px;text-align: center;background-color: #f4f4f4;border: none;color: #fff;border-radius: 20px;">' +
+              '<div style="white-space: nowrap;overflow: hidden;padding: 5px;border-radius: 20px; background-color: #1BB18C; width:' + this.percentageLoaded.toFixed(0) + '%;"></div>' +
+              '</div>';
+            } else if(this.percentageLoaded == 100) {
+              if(elem) elem.innerHTML = '<span style="font-size: 16px; font-weight: bold;">Done!</span>' +
+              '<div style="width: 100%;margin: 10px 0 0 0;padding: 0px;text-align: center;background-color: #f4f4f4;border: none;color: #fff;border-radius: 20px;">' +
+              '<div style="white-space: nowrap;overflow: hidden;padding: 5px;border-radius: 20px; background-color: #1BB18C; width:100%;"></div>' +
+              '</div>';
+              if(alertBt) alertBt.innerHTML = '<span class="button-inner">Okay</span>';
+            }
+    
+          }
+        })
     
         
         let options: FileUploadOptions = {
@@ -215,9 +236,7 @@ export class EditProfilePage {
   
           // this.saveToStorage(data.response);          
           // this.navCtrl.setRoot(LoginPage);
-          
-          loading.dismiss();
-    
+              
           let alert = this.alertCtrl.create({
             title: 'Update Foto Berhasil',
             message: 'Harap login kembali.',
@@ -235,8 +254,7 @@ export class EditProfilePage {
           // this.ionViewWillEnter();
         }, (err) => {
           console.log(err);
-          loading.dismiss();
-          alert( JSON.stringify(err));
+          this.showAlert( JSON.stringify(err));
         });
          
       }

@@ -11,9 +11,8 @@
   <ion-card *ngFor="let data of datas" (click)="detail(data)">
     <img src="assets/imgs/rusak1.jpg"/>
       <ion-card-content class="content">
-          <div class="row">
-            <div col-1><ion-icon name="information-circle" class="icon"></ion-icon></div>
-            <div col-11> {{data.namaBarang}}</div>
+          <div class="judul">
+            {{data.namaBarang}}
           </div>
           <div class="row">
             <div col-1><ion-icon name="build" class="icon"></ion-icon></div>

@@ -5,7 +5,9 @@
   
   
   <ion-content padding>
-    <img src="assets/imgs/LogoAzizPC.jpg" class='Logo'>
+    <div class="masukFont">
+      Masuk
+    </div>
     <form #loginForm="ngForm" novalidate>
       <ion-list >
         <ion-item>
@@ -36,19 +38,14 @@
           <button class="ButtonMasuk" ion-button color="AyoDermawan" (click)="sign(loginForm)" block><p class="ButtonWord">Masuk</p></button>
         </ion-col>
       </ion-row>
-  
-      <ion-grid>
-        <ion-row>
-          <ion-col text-center>
-            <p class="Head">
-              <font color="black">Tidak punya akun?</font>
-              <a class="Link" (click)="signUp()"> Buat akun.</a>
-              <a class="Link" (click)="skip()">Skip wiw</a>
-            </p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-  
+      <div class="lupa">
+        lupa password?
+      </div>  
     </form>
   
   </ion-content>
+
+  <ion-footer class="kaki">
+    <font color="black">Tidak punya akun?</font>
+    <a class="Link" (click)="signUp()"> Buat akun.</a>
+  </ion-footer>

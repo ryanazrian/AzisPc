@@ -1,4 +1,17 @@
 page-login {
+    .masukFont{
+        padding-top: 15vw;
+        font-family: 'Montserrat', sans-serif;
+        color: blueviolet;
+        font-size:  10vw;
+        font-weight: 300;
+    }
+
+    .lupa{
+        text-align: right;
+        color: #0077db;
+    }
+
     .Logo {
         height: 40vw; 
         width: 40vw; 
@@ -23,7 +36,8 @@ page-login {
 
     .ButtonMasuk {
         height: 10vw !important;
-        // width: 100%;
+        width: 100%;
+        
     }
 
     .ButtonWord {
@@ -48,6 +62,13 @@ page-login {
         color: #1e99d0;
     }
     ion-title{
+        text-align: center;
+    }
+
+    .kaki{
+        padding: 3vw;
+        background-color: #bababa;
+        height: 13vw;
         text-align: center;
     }
 }

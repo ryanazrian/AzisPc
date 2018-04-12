@@ -11,8 +11,8 @@
   <div class="photoprofile">
     <ion-icon name="camera" class="editIcon"></ion-icon>
     <img src="assets/imgs/logo.png" *ngIf="!image" class="Pict" (click) = "updatePicture()"/>
-  </div>
     <img [src]="image" *ngIf="image" (click) = "updatePicture()"/>
+  </div>
     <form #editForm="ngForm" novalidate>        
         <ion-item padding-right text-wrap>
           <ion-input class="konten" value = "{{nama}}" [(ngModel)]="nama" [ngModelOptions]="{standalone: true}"> </ion-input>

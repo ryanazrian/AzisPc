@@ -1,4 +1,4 @@
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import { NgForm } from '@angular/forms';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController, ActionSheetController, AlertController } from 'ionic-angular';
@@ -71,17 +71,22 @@ export class EditProfilePage {
 
     if(form.valid){
       loading.present();
-      console.log(this.nama);
       let input = JSON.stringify({
-        nama : this.nama,
+        name : this.nama,
         alamat : this.alamat,
-        hp : this.hp,
+        phone : this.hp,
         email : this.email,
         id : this.id
       });
-      this.http.post(this.data.link_hosting+"EditProfil.php",input).subscribe(data => {
+      console.log(input);
+      console.log(this.token);  
+      let headers = new Headers({ 'Content-Type': 'application/json', 'Accept' : 'application/json', 'Authorization' : 'Bearer ' + this.token });
+      let options = new RequestOptions({ headers: headers });
+
+      this.http.post(this.data.link_hosting+"users/"+ this.id, input, options).subscribe(data => {
         loading.dismiss();
         let response = data.json();
+        this.showAlert("Update Berhasil");
         console.log(response);
         if(response.status == 200){
           let user=response.data;

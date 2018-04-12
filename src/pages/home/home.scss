@@ -1,12 +1,8 @@
 page-home {
-    .Status {
-        font-size: 46 px !important;
-        text-align: left;
-    }
-
     .Link {
         text-align: center;
         font-size: 5vw;
+        margin: 3vw;
         color: #1e99d0;
     }
 
@@ -20,9 +16,9 @@ page-home {
 
     .judul{
         font-size: 5vw;
-        font-weight: 500;
-        text-align: center;
-        margin: 0vw 0vw 0vw 0vw;    
+        margin: 2vw;
+        margin-left: 4vw;
+        margin-bottom: 0.5vw;
     }
 
     ion-icon {
@@ -30,7 +26,42 @@ page-home {
         font-size: 5vw; //Preferred size here
     }
 
+    .status{
+        padding: 0vw;
+        margin: 2vw;
+        margin-left: 4vw;
+        color: #0077db;
+    }
+
     .content{
-        padding: 3vw 3vw 3vw 5vw;
+        padding: 0vw;
+    }
+
+    .tanggal{
+        margin: 0.5;
+        margin-left: 4vw;
+    }
+
+    .kartu{
+        min-width: 100vw;
+        padding: 0;
+        margin: 4vw;
+    }
+
+    .borderCard{
+        height: 4vw;
+        background-color: #0077db;
+    }
+
+    .statBorder{
+        height: 0.5vw;
+        margin-left: 4vw;
+        margin-right: 40vw;
+        background-color: #0077db; 
+    }
+
+    .linkBorder{
+        background-color: gray;
+        height: 0.15vw;
     }
 }

@@ -1,15 +1,15 @@
 <ion-menu [content]="content">
     <ion-header>
         <ion-toolbar>
-            <ion-title>
+            <div class="judul">
                 Menu
-            </ion-title>
+            </div>
         </ion-toolbar>
     </ion-header>
     <ion-content>
-        <ion-list>
+        <ion-list no-lines> 
           <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-            {{p.title}}
+            <ion-icon name='{{p.icon}}' class="ikon"></ion-icon>{{p.title}}
           </button>
         </ion-list>
       </ion-content>

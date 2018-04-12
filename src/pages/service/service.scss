@@ -40,8 +40,15 @@ page-service {
         -webkit-box-orient: vertical;
     }
 
+    #tanggal{
+        font-size: 3vw;
+        color: gray;
+    }
+
     .kartu{
-        margin: 10 10 0 0;
+        min-width: 100vw;
+        margin: 3vw 0vw 3vw 0vw;
+        padding: 2vw;
     }
 
     .review{

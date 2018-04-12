@@ -7,39 +7,27 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content no-padding>
   <ion-card *ngFor="let data of datas" (click)="detail(data)">
     <img src="assets/imgs/rusak1.jpg"/>
       <ion-card-content class="content">
-          <div class="judul">
-            {{data.namaBarang}}
-          </div>
-          <div class="row">
-            <div col-1><ion-icon name="build" class="icon"></ion-icon></div>
-            <div col-11> Diagnosa</div>
-          </div>
-          <div class="row">
-              <div col-1><ion-icon name="calendar" class="icon"></ion-icon></div>
-              <div col-11> 12 Febuari 2018</div>
-            </div>
+        <div class="borderCard">
+        </div>
+        <div class="row" class="status">
+          Status: Diagnosa
+        </div>
+        <div class="statBorder">
+        </div>
+        <div class="judul">
+          {{data.namaBarang}}
+        </div>
           <h3 class="Link">
             <a (click)="detail(data)"> Detail </a>
           </h3>
       </ion-card-content>
   </ion-card>
-  <!-- <ion-card>
-      <img src="assets/imgs/rusak.jpeg"/>
-        <ion-card-content>
-          <ion-card-title>
-            RoG Strix
-          </ion-card-title>
-            <p>
-              The most popular industrial group ever, and largely
-              responsible for bringing the music to a mass audience.
-            </p>
-        </ion-card-content>
-    </ion-card> -->
-    <ion-fab right bottom>
-      <button ion-fab color="light" (click)="add()"><ion-icon name="add"></ion-icon></button>
-    </ion-fab>
+
+  <ion-fab right bottom>
+    <button ion-fab color="light" (click)="add()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>

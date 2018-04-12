@@ -10,12 +10,12 @@
 
 
 <ion-content padding>
-  <h2 class="title">Buat Akun Baru</h2>
+  <div class="title">Buat Akun Baru</div>
 
   <form #registerForm="ngForm" novalidate>
       <ion-list >
-        <ion-item>
-          <ion-label floating><p class="Head">Nama</p></ion-label>
+        <ion-item class="padInput">
+          <ion-label stacked><p class="Head">Nama</p></ion-label>
           <ion-input class="Head2" [(ngModel)]="user.nama" name="name" type="text" #nama="ngModel" spellcheck="false" autocapitalize="off"
             required>
           </ion-input>
@@ -24,8 +24,8 @@
         Nama harus diisi
         </p> 
 
-        <ion-item>
-          <ion-label floating><p class="Head">Email</p></ion-label>
+        <ion-item class="padInput">
+          <ion-label stacked><p class="Head">Email</p></ion-label>
           <ion-input class="Head2" [(ngModel)]="user.email" name="email" pattern="[^@\]+@[^@\]+\.[^@\s]+" type="email" #mail="ngModel" spellcheck="false" autocapitalize="off"
             required>
           </ion-input>
@@ -34,8 +34,8 @@
         Email harus diisi
         </p>
 
-        <ion-item>
-            <ion-label floating><p class="Head">Nomor Handphone</p></ion-label>
+        <ion-item class="padInput">
+            <ion-label stacked><p class="Head">Nomor Handphone</p></ion-label>
             <ion-input class="Head2" [(ngModel)]="user.hp" name="number" type="number" #nomor="ngModel" spellcheck="false" autocapitalize="off"
               required>
             </ion-input>
@@ -44,8 +44,8 @@
           Nomor Handphone harus diisi
           </p>
   
-        <ion-item>
-          <ion-label floating><p class="Head">Password</p></ion-label>
+        <ion-item class="padInput">
+          <ion-label stacked><p class="Head">Password</p></ion-label>
           <ion-input class="Head2"  [(ngModel)]="user.password" name="password" type="{{status}}" #pass="ngModel"  required>
           </ion-input>
           <button class="tombol" [hidden]="lihat == false" (click)="showPassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye" class='icon' color="primary2"> </ion-icon> </button>
@@ -55,8 +55,8 @@
           Password harus diisi
         </p>
 
-        <ion-item>
-          <ion-label floating><p class="Head">Alamat</p></ion-label>
+        <ion-item class="padInput">
+          <ion-label stacked><p class="Head">Alamat</p></ion-label>
           <ion-input class="Head2" [(ngModel)]="user.alamat" name="address" type="text" #alamat="ngModel" spellcheck="false" autocapitalize="off"
             required>
           </ion-input>
@@ -73,16 +73,10 @@
           <button class="ButtonMasuk" ion-button color="AyoDermawan" (click)="signUp(registerForm)" block><p class="ButtonWord">Buat</p></button>
         </ion-col>
       </ion-row>
-  
-      <ion-grid>
-        <ion-row>
-          <ion-col text-center>
-            <p class="Head">
-              <font color="black">Sudah punya akun?</font>
-              <a class="Link" (click)="signIn()"> Masuk.</a>
-            </p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
   </form>
 </ion-content>
+
+<ion-footer class="kaki">
+  <font color="black">Sudah punya akun?</font>
+  <a class="Link" (click)="signIn()"> Masuk.</a>
+</ion-footer>

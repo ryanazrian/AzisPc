@@ -33,7 +33,7 @@
                 <ion-checkbox [(ngModel)]="charger" value="charger" [ngModelOptions]="{standalone: true}"></ion-checkbox>
               </ion-item>
               <ion-item>
-                <ion-label>Maouse</ion-label>
+                <ion-label>Mouse</ion-label>
                 <ion-checkbox [(ngModel)]="mouse" value="mouse"[ngModelOptions]="{standalone: true}"></ion-checkbox>
               </ion-item>
               <ion-item>
@@ -74,6 +74,7 @@
                 <ion-icon name="camera"></ion-icon>
                 Ambil Foto
               </button>
+              <img [src]="image" *ngIf="image"/>
           </ion-list>
     </form>
     <div #map id="map"></div>                  

@@ -17,6 +17,7 @@ export class HomePage {
   submitted : boolean =false;
   dataku : any;
   id : string;
+  gambar:string =  "http://azizpc.codepanda.web.id/";
   token : any;
   servisan:any = [];
 

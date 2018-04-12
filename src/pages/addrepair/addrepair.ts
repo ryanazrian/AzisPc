@@ -4,6 +4,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController, ToastController, ActionSheetController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 import { NgForm } from '@angular/forms';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { Geolocation ,GeolocationOptions ,Geoposition ,PositionError } from '@ionic-native/geolocation'; 
@@ -51,7 +52,8 @@ export class AddrepairPage {
   services : string;
 
   validFoto = false;
-  image : string;
+  image : any;
+  percentageLoaded: any
 
 
   lat : string;
@@ -82,6 +84,7 @@ export class AddrepairPage {
               public loadCtrl : LoadingController,
               public http: Http,     
               public data: Data,
+              private transfer: FileTransfer,
               public toastCtrl: ToastController,
               private geolocation: Geolocation,
               public storage : Storage,
@@ -261,9 +264,12 @@ export class AddrepairPage {
         let response = data.json();
         this.idBarang = response.data.id;
         console.log(response);
+        console.log(this.idBarang);
         if(response){
           let datas=response.data;
+          this.postPhoto(this.image, this.idBarang, this.token);
           console.log(datas);
+
           this.navCtrl.setRoot(HomePage);
           
         }
@@ -320,66 +326,102 @@ export class AddrepairPage {
         quality: 50, //to reduce img size
         targetHeight: 600,
         targetWidth: 600,
-        destinationType: this.camera.DestinationType.DATA_URL, //to make it base64 image
+        destinationType: this.camera.DestinationType.FILE_URI, //FILE URI itu buat image aseli
         encodingType: this.camera.EncodingType.JPEG,
         mediaType:this.camera.MediaType.PICTURE,
         correctOrientation: true
       }
 
       const result =  await this.camera.getPicture(options);
-
       this.image = result;
-      this.validFoto = true;
+
+      // this.img = 'data:image/jpeg;base64,' + result;
+//      this.postPhoto(result);
+
+      //this.validPhoto=true;
+
     }
     catch (e) {
-      this.showAlert1(e);
+      console.error(e);
+      alert("error");
     }
 
   }
 
   getPhotoFromGallery(){
     this.camera.getPicture({
-        destinationType: this.camera.DestinationType.DATA_URL,
+        destinationType: this.camera.DestinationType.FILE_URI,
         sourceType     : this.camera.PictureSourceType.PHOTOLIBRARY,
         targetWidth: 600,
         targetHeight: 600
     }).then((imageData) => {
       // this.base64Image = imageData;
       // this.uploadFoto();
-      this.image = imageData; 
-      this.validFoto = true;
+      this.image = imageData;
+      
+      // this.img = 'data:image/jpeg;base64,' + imageData;
+  //    this.postPhoto(imageData);
+      
+      //this.validPhoto=true;
       }, (err) => {
-        this.showAlert1(err);
     });
   }
 
 
-  // uploadFile() {
-  //   let loader = this.loadCtrl.create({
-  //     content: "Uploading..."
-  //   });
-  //   loader.present();
-  //   const fileTransfer: FileTransferObject = this.transfer.create();
-  
-  //   let options: FileUploadOptions = {
-  //     fileKey: 'ionicfile',
-  //     fileName: 'ionicfile',
-  //     chunkedMode: false,
-  //     mimeType: "image/jpeg",
-  //     headers: {}
-  //   }
-  
-  //   fileTransfer.upload(this.image, 'http://192.168.0.7:8080/api/uploadImage', options)
-  //     .then((data) => {
-  //     console.log(data+" Uploaded Successfully");
-  //     this.imageFileName = "http://192.168.0.7:8080/static/images/ionicfile.jpg"
-  //     loader.dismiss();
-  //     this.showAlert1("Image uploaded successfully");
-  //   }, (err) => {
-  //     console.log(err);
-  //     loader.dismiss();
-  //     this.showAlert1(err);
-  //   });
-  // }
+  postPhoto(data, id, token){
+    // alert(data);
+    // alert("token" + this.token);
+    const fileTransfer: FileTransferObject = this.transfer.create();
+
+    let alert = this.alertCtrl.create({
+      subTitle: 'Uploading... 0%',
+      buttons: ['Hold on for a few seconds...']
+    });
+    alert.present();
+
+    fileTransfer.onProgress((progress) => {
+      if(progress.lengthComputable) {
+        this.percentageLoaded = (progress.loaded / progress.total) * 100;
+        console.log('Percentage -> ' + this.percentageLoaded)
+        const elem = document.querySelector("h3.alert-sub-title");
+        const alertBt = document.querySelector("button.alert-button");
+
+        if(this.percentageLoaded < 100) {
+          if(elem) elem.innerHTML = '<span style="font-size: 16px; font-weight: bold;">Uploading... ' + this.percentageLoaded.toFixed(0) + '%</span><br>' +
+          '<div style="width: 100%;margin: 10px 0 0 0;padding: 0px;text-align: center;background-color: #f4f4f4;border: none;color: #fff;border-radius: 20px;">' +
+          '<div style="white-space: nowrap;overflow: hidden;padding: 5px;border-radius: 20px; background-color: #1BB18C; width:' + this.percentageLoaded.toFixed(0) + '%;"></div>' +
+          '</div>';
+        } else if(this.percentageLoaded == 100) {
+          if(elem) elem.innerHTML = '<span style="font-size: 16px; font-weight: bold;">Done!</span>' +
+          '<div style="width: 100%;margin: 10px 0 0 0;padding: 0px;text-align: center;background-color: #f4f4f4;border: none;color: #fff;border-radius: 20px;">' +
+          '<div style="white-space: nowrap;overflow: hidden;padding: 5px;border-radius: 20px; background-color: #1BB18C; width:100%;"></div>' +
+          '</div>';
+          if(alertBt) alertBt.innerHTML = '<span class="button-inner">Okay</span>';
+        }
+
+      }
+    })
+
+    
+    let options: FileUploadOptions = {
+      fileKey: 'foto',
+      fileName: "this.email + Date.now()",
+      chunkedMode: false,
+      mimeType: "image/jpeg",
+      headers: {'Authorization': 'Bearer ' + token}
+    }
+
+    fileTransfer.upload(data, this.data.link_hosting+"order/edit/"+id, options)
+      .then((data) => {
+
+      // this.saveToStorage(data.response);          
+      // this.navCtrl.setRoot(LoginPage);      
+      // this.ionViewWillEnter();
+    }, (err) => {
+      console.log(err);
+      this.showAlert1(JSON.stringify(err));
+    });
+     
+  }
 }
   

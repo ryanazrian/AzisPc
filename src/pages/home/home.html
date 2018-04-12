@@ -9,7 +9,8 @@
 
 <ion-content padding>
   <ion-card *ngFor="let data of datas" (click)="detail(data)">
-    <img src="assets/imgs/rusak1.jpg"/>
+    <img *ngIf="!data.foto" src="assets/imgs/rusak1.jpg"/>
+    <img [src]=this.gambar+data.foto *ngIf="data.foto"/>  
       <ion-card-content class="content">
           <div class="judul">
             {{data.namaBarang}}

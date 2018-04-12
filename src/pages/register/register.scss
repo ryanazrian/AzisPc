@@ -3,14 +3,19 @@ page-register {
         text-align: center;
     }
     .title{
-        text-align: center;
-        font-size:8vw;
-        font-weight:lighter;
-        padding-top:3vw;
+        padding-top: 6vw;
+        margin-bottom: 2vw;
+        font-family: 'Montserrat', sans-serif;
+        color: #0077bd;
+        font-size:  10vw;
+        font-weight: 300;
+    }
+    .padInput{
+        padding: 0;
     }
     .Head {
-        font-size: 5vw;
-        color: #202020;
+        font-size: 4vw;
+        color: #0077bd;
     }
     .Head2 {
         font-size: 5vw;
@@ -32,5 +37,11 @@ page-register {
         font-size:7vw;
         
         float:right;
+    }
+    .kaki{
+        padding: 3vw;
+        background-color: #bababa;
+        height: 13vw;
+        text-align: center;
     }
 }

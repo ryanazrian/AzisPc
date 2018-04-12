@@ -1,15 +1,21 @@
 page-login {
     .masukFont{
         padding-top: 15vw;
+        padding-bottom: 9vw;
         font-family: 'Montserrat', sans-serif;
-        color: blueviolet;
+        color: #0077bd;
         font-size:  10vw;
         font-weight: 300;
     }
 
     .lupa{
+        margin-top: 5vw;
         text-align: right;
         color: #0077db;
+    }
+
+    .padInput{
+        padding: 0;
     }
 
     .Logo {
@@ -35,6 +41,7 @@ page-login {
     }  
 
     .ButtonMasuk {
+        margin-top: 3vw;
         height: 10vw !important;
         width: 100%;
         
@@ -50,8 +57,8 @@ page-login {
     }
 
     .Head {
-        font-size: 5vw;
-        color: #202020;
+        font-size: 4vw;
+        color: #0077bd;
     }
     .Head2 {
         font-size: 5vw;

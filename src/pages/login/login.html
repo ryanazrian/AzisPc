@@ -10,8 +10,8 @@
     </div>
     <form #loginForm="ngForm" novalidate>
       <ion-list >
-        <ion-item>
-          <ion-label floating><p class="Head">Email</p></ion-label>
+        <ion-item class="padInput">
+          <ion-label stacked><p class="Head">Email</p></ion-label>
           <ion-input class="Head2" [(ngModel)]="email" name="email" type="email" #user="ngModel" spellcheck="false" autocapitalize="off"
             required>
           </ion-input>
@@ -20,8 +20,8 @@
         Email harus diisi
         </p>
   
-        <ion-item>
-          <ion-label floating><p class="Head">Password</p></ion-label>
+        <ion-item class="padInput">
+          <ion-label stacked><p class="Head">Password</p></ion-label>
           <ion-input class="Head2"  [(ngModel)]="password" name="pass" type="{{status}}" #pass="ngModel"  required>
           </ion-input>
           <button class="tombol" [hidden]="lihat == false" (click)="showPassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye" class='icon' color="primary2"> </ion-icon> </button>
@@ -33,11 +33,7 @@
       </ion-list>
   
       <!--ini buat mock up-->
-      <ion-row>
-        <ion-col>
-          <button class="ButtonMasuk" ion-button color="AyoDermawan" (click)="sign(loginForm)" block><p class="ButtonWord">Masuk</p></button>
-        </ion-col>
-      </ion-row>
+      <button class="ButtonMasuk" ion-button color="AyoDermawan" (click)="sign(loginForm)" block><p class="ButtonWord">Masuk</p></button>
       <div class="lupa">
         lupa password?
       </div>  

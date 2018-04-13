@@ -9,8 +9,10 @@
 
 <ion-content no-padding>
   <ion-card *ngFor="let data of datas" (click)="detail(data)">
-    <img *ngIf="!data.foto" src="assets/imgs/rusak1.jpg"/>
-    <img [src]=this.gambar+data.foto *ngIf="data.foto"/>  
+    <!-- <div class="foto_barang"> -->
+      <img *ngIf="!data.foto" src="assets/imgs/rusak1.jpg"/>
+      <img [src]=this.gambar+data.foto *ngIf="data.foto" width="300" height="400"/>
+    <!-- </div>   -->
       <ion-card-content class="content">
         <div class="borderCard">
         </div>

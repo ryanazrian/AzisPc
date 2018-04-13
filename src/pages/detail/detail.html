@@ -14,7 +14,8 @@
 
 
 <ion-content>
-  <img src="assets/imgs/rusak.jpeg"/><br/>
+  <img *ngIf="!data.foto" src="assets/imgs/rusak.jpg"/>
+  <img [src]=this.gambar+data.foto *ngIf="data.foto"/>
   <div padding>
     <h2 class="judul"> {{data.namaBarang}} </h2>
       <!-- <div class="row">

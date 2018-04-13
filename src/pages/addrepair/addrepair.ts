@@ -324,8 +324,8 @@ export class AddrepairPage {
     try {
       const options : CameraOptions = {
         quality: 50, //to reduce img size
-        targetHeight: 600,
-        targetWidth: 600,
+        targetHeight: 400,
+        targetWidth: 400,
         destinationType: this.camera.DestinationType.FILE_URI, //FILE URI itu buat image aseli
         encodingType: this.camera.EncodingType.JPEG,
         mediaType:this.camera.MediaType.PICTURE,
@@ -352,8 +352,8 @@ export class AddrepairPage {
     this.camera.getPicture({
         destinationType: this.camera.DestinationType.FILE_URI,
         sourceType     : this.camera.PictureSourceType.PHOTOLIBRARY,
-        targetWidth: 600,
-        targetHeight: 600
+        targetWidth: 400,
+        targetHeight: 400
     }).then((imageData) => {
       // this.base64Image = imageData;
       // this.uploadFoto();

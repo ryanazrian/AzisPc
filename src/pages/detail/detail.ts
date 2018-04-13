@@ -24,6 +24,7 @@ export class DetailPage {
   konfirmasi = true;
   reparasi = true;
   selesai = true;
+  gambar:string =  "http://azizpc.codepanda.web.id/";
 
   data : any;
 

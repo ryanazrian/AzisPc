@@ -10,8 +10,8 @@
 
   <div class="photoprofile">
     <ion-icon name="camera" class="editIcon"></ion-icon>
-    <img src="assets/imgs/logo.png" *ngIf="!image" class="Pict" (click) = "updatePicture()"/>
-    <img [src]="image" *ngIf="image" (click) = "updatePicture()"/>
+    <img src="assets/imgs/logo.png" *ngIf="!image" class="Pict" (click) = "updatePicture()" id="profile-image"/>
+    <img [src]="image" *ngIf="image" (click) = "updatePicture()" id="profile-image"/>
   </div>
     <form #editForm="ngForm" novalidate>        
         <ion-item padding-right text-wrap>

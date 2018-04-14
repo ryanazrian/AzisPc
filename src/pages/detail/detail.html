@@ -14,8 +14,8 @@
 
 
 <ion-content>
-  <img *ngIf="!data.foto" src="assets/imgs/rusak.jpg"/>
-  <img [src]=this.gambar+data.foto *ngIf="data.foto"/>
+  <img *ngIf="!data.foto" src="assets/imgs/rusak.jpeg"/>
+  <img [src]=this.gambar+data.foto *ngIf="data.foto"  width="460" height="300"/>
   <div padding>
     <h2 class="judul"> {{data.namaBarang}} </h2>
       <!-- <div class="row">
@@ -100,8 +100,8 @@
         <h2>Konfirmasi</h2>
         <h3>Tanggal : -</h3>
         <h3>Harga   : -</h3>
-        <button ion-button color="secondary" [disabled]="konfirmasi">Terima</button>
-        <button ion-button color="danger" [disabled]="konfirmasi">Batal</button>
+        <!-- <button ion-button color="secondary" [disabled]="konfirmasi">Terima</button>
+        <button ion-button color="danger" [disabled]="konfirmasi">Batal</button> -->
       </ion-item>
 
       <ion-item class="iconable" [hidden]="!reparasi">

@@ -8,9 +8,9 @@
 </ion-header>  
 <ion-content>
   <div class="photoprofile">
-    <ion-icon name="camera" class="editIcon" (click)="takePhoto()"></ion-icon>
-    <img src="assets/imgs/logo.png" *ngIf="!image" class="Pict"/>
-    <img [src]="image" *ngIf="image"/>  
+    <!-- //<ion-icon name="camera" class="editIcon" (click)="takePhoto()"></ion-icon> -->
+    <img src="assets/imgs/logo.png" *ngIf="!image" class="Pict" id="profile-image"/>
+    <img [src]="image" *ngIf="image" class="Pict" id="profile-image"/>  
   </div>
     <ion-item padding-right text-wrap>
       <p class="Nama">{{nama}}</p>

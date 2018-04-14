@@ -36,12 +36,12 @@
 
         <ion-item class="padInput">
             <ion-label stacked><p class="Head">Nomor Handphone</p></ion-label>
-            <ion-input class="Head2" [(ngModel)]="user.hp" name="number" type="number" #nomor="ngModel" spellcheck="false" autocapitalize="off"
+            <ion-input class="Head2" minlength="11" [(ngModel)]="user.hp" name="number" type="number" #nomor="ngModel" spellcheck="false" autocapitalize="off"
               required>
             </ion-input>
           </ion-item>
           <p ion-text [hidden]="nomor.valid || submitted == false" color="danger" padding-left class="Warning">
-          Nomor Handphone harus diisi
+          Nomor Handphone harus diisi (min. 11 Digit)
           </p>
   
         <ion-item class="padInput">

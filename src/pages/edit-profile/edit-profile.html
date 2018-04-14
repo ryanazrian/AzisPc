@@ -25,8 +25,13 @@
         <ion-item padding-right text-wrap>
           <ion-icon name="call" item-left class="Icon"></ion-icon>
           <p class="Head">Nomor Telepon</p>
-          <ion-input class="masuk" value = "{{hp}}" [(ngModel)]="hp" [ngModelOptions]="{standalone: true}"> </ion-input>
+          <ion-input class="masuk" minlength="11" value = "{{hp}}" [(ngModel)]="hp" #nomor="ngModel" [ngModelOptions]="{standalone: true}"> </ion-input>
         </ion-item>
+        <div id="pads">
+          <p ion-text [hidden]="nomor.valid || submitted == false" color="danger" padding-left class="Warning">
+            Nomor Handphone harus diisi (min. 11 Digit)
+            </p>
+        </div>
         <ion-item padding-right text-wrap>
           <ion-icon name="md-map" item-left class="Icon"></ion-icon>
           <p class="Head">Alamat</p>

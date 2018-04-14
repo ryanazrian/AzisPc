@@ -87,7 +87,7 @@ export class EditProfilePage {
         loading.dismiss();
         let response = data.json();
         this.showAlert("Update Berhasil");
-        console.log(response);
+        console.log(response.data);
         if(response.status == 200){
           let user=response.data;
           console.log(user);
@@ -110,8 +110,8 @@ export class EditProfilePage {
   }
 
   showError(err: any){
-    err.status==0?
-    this.showAlert("Tidak ada koneksi. Cek kembali sambungan Internet perangkat Anda"):
+    err.status==422?
+    this.showAlert("Harap Masukan data dengan benar"):
     this.showAlert("Tidak dapat menyambungkan ke server. Mohon muat kembali halaman ini");
   }
   showAlert(message){

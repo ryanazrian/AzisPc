@@ -87,11 +87,11 @@ export class EditProfilePage {
         loading.dismiss();
         let response = data.json();
         this.showAlert("Update Berhasil");
-        console.log(response.data);
-        if(response.status == 200){
+        console.log(response.data[0]);
+        if(response.data){
           let user=response.data;
           console.log(user);
-          this.data.login(user);
+          this.data.login(response.data[0]);
           this.navCtrl.setRoot(ProfilePage);
         }
         this.showAlert(response.message);

@@ -62,6 +62,7 @@ export class AddrepairPage {
   lats : any;
   langs : any
   goo : any;
+  tanda = 0;
 
 
 
@@ -194,21 +195,24 @@ export class AddrepairPage {
             content: document.getElementById('Your Pick Up Location')
           });
   
-            this.goo = google.maps.event.addListener(map, 'click', function(event) {
-              console.log(marker);
-            var marker = new google.maps.Marker({
-              // animation: google.maps.Animation.DROP,
-              position: event.latLng,
-              map: map,
-              animation: google.maps.Animation.DROP,
-              draggable:true,              
-              title : 'Your Pick Up Location'
-            });
+            // this.goo = google.maps.event.addListener(map, 'click', function(event) {
+
+              var marker = new google.maps.Marker({
+                // animation: google.maps.Animation.DROP,
+                position: latLng,
+                map: map,
+                animation: google.maps.Animation.DROP,
+                draggable:true,              
+                title : 'Your Pick Up Location'
+              });
+              console.log("sini");
+              this.tanda=1;
+
              this.lokasi = marker.getPosition()
              this.lat = this.lokasi.lat();
              this.lang = this.lokasi.lng();
              console.log(marker);             
-          })
+          // })
        }
 
 

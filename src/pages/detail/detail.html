@@ -46,7 +46,8 @@
       <div class="row">
         <div col-4>Total biaya</div>
         <div col-1>:</div>
-        <div col-7>-</div>
+        <div col-7 *ngIf=!data.harga>-</div>
+        <div col-7 *ngIf=data.harga>Rp{{data.harga}}</div>
       </div>
     </div>
     
@@ -55,22 +56,22 @@
 
       <ion-item class="iconable" [hidden]="!jemput">
         <ion-avatar item-start>
-          <div class="lingkaran"></div>
+          <div class="lingkaran1"></div>
         </ion-avatar>
         <h2>Penjemputan</h2>
-        <h3>Tanggal - </h3>
+        <h3>Tanggal : {{data.dateIn}} </h3>
       </ion-item>
       <ion-item class="icondisable" [hidden]="jemput">
         <ion-avatar item-start>
           <div class="lingkaran"></div>
         </ion-avatar>
         <h2>Penjemputan</h2>
-        <h3>Tanggal - </h3>
+        <h3>Tanggal : {{data.dateIn}} </h3>
       </ion-item>
 
       <ion-item class="iconable" [hidden]="!diagnosa">
         <ion-avatar item-start>
-          <div class="lingkaran"></div>
+          <div class="lingkaran1"></div>
         </ion-avatar>
         <h2>Diagnosa</h2>
         <h3>Tanggal : -</h3>
@@ -85,11 +86,11 @@
 
       <ion-item class="iconable" [hidden]="!konfirmasi">
         <ion-avatar item-start>
-          <div class="lingkaran"></div>
+          <div class="lingkaran1"></div>
         </ion-avatar>
         <h2>Konfirmasi</h2>
         <h3>Tanggal : -</h3>
-        <h3>Harga   : -</h3>
+        <h3>Harga   : Rp{{data.harga}}</h3>
         <button ion-button color="secondary" [disabled]="!konfirmasi" (click)="Terima()">Terima</button>
         <button ion-button color="danger" [disabled]="!konfirmasi" (click)="Batal()">Batal</button>
       </ion-item>
@@ -104,9 +105,16 @@
         <button ion-button color="danger" [disabled]="konfirmasi">Batal</button> -->
       </ion-item>
 
+      <ion-item class="iconable" *ngIf=tungguKonfirm>
+        <ion-avatar item-start>
+          <div class="lingkaran1"></div>
+        </ion-avatar>
+        <h2 class="pengerjaan">Pengerjaan dimasukan dalam antrian</h2>
+      </ion-item>
+
       <ion-item class="iconable" [hidden]="!reparasi">
         <ion-avatar item-start>
-          <div class="lingkaran"></div>
+          <div class="lingkaran1"></div>
         </ion-avatar>
         <h2>Reparasi</h2>
         <h3>Tanggal : -</h3>
@@ -121,7 +129,7 @@
 
       <ion-item class="iconable" [hidden]="!selesai">
         <ion-avatar item-start>
-          <div class="lingkaran"></div>
+          <div class="lingkaran1"></div>
         </ion-avatar>
         <h2>Selesai</h2>
         <h3>Tanggal : -</h3>
@@ -136,8 +144,8 @@
         <h3>Garansi : -</h3>
       </ion-item>
       
-      <div padding (click)="review()">
-        <button ion-button block padding [disabled]="false">Reveiw</button>
+      <div *ngIf="data.status == 7" padding (click)="review()">
+        <button ion-button block padding [disabled]="false">Review</button>
       </div>
     </ion-list>
 </ion-content>

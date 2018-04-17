@@ -25,6 +25,7 @@ export class DetailPage {
   jemput = true;
   diagnosa = true;
   konfirmasi = true;
+  tungguKonfirm = true;
   reparasi = true;
   selesai = true;
   gambar:string =  "http://azizpc.codepanda.web.id/";
@@ -39,49 +40,62 @@ export class DetailPage {
               public http : Http,
               private datas : Data,
               public alertCtrl: AlertController) {
-                this. data = this.navParams.data;
-                this.data.status = 3;
+                this.data = this.navParams.data;
                 console.log(this.data);
                 this.getToken();
-                this.status();
+                this.status(this.data.status);
   }
 
-  status(){
-    if(this.data.status ==1){
+  status(data){
+    if(data ==1){
       this.jemput = true;
       this.diagnosa = false;
       this.konfirmasi = false;
+      this.tungguKonfirm = false;
       this.reparasi = false;
       this.selesai = false;
     }
 
-    else if(this.data.status == 2){
+    else if(data == 2){
       this.jemput = false;
       this.diagnosa = true;
       this.konfirmasi = false;
+      this.tungguKonfirm = false;
       this.reparasi = false;
       this.selesai = false;
     }
 
-    else if(this.data.status == 3){
+    else if(data == 3){
       this.jemput = false;
       this.diagnosa = false;
       this.konfirmasi = true;
+      this.tungguKonfirm = false;
       this.reparasi = false;
       this.selesai = false;
     }
 
-    else if(this.data.status == 4){
+    else if(data == 5){
       this.jemput = false;
       this.diagnosa = false;
       this.konfirmasi = false;
+      this.tungguKonfirm = true;
+      this.reparasi = false;
+      this.selesai = false;
+    }
+
+    else if(data == 6){
+      this.jemput = false;
+      this.diagnosa = false;
+      this.konfirmasi = false;
+      this.tungguKonfirm = false;
       this.reparasi = true;
       this.selesai = false;
     }
-    else if(this.data.status == 5){
+    else if(data == 7){
       this.jemput = false;
       this.diagnosa = false;
       this.konfirmasi = false;
+      this.tungguKonfirm = false;
       this.reparasi = false;
       this.selesai = true;
     }
@@ -89,6 +103,7 @@ export class DetailPage {
       this.jemput = false;
       this.diagnosa = false;
       this.konfirmasi = false;
+      this.tungguKonfirm = false;
       this.reparasi = false;
       this.selesai = false;
     }
@@ -103,8 +118,8 @@ export class DetailPage {
           text: 'Ya',
           handler: () => {
             console.log('Agree clicked');
-            this.data.status = 4;
-            this.status();
+            this.updateStatus(5);
+            this.status(5);
           }
         },
         {
@@ -177,7 +192,7 @@ export class DetailPage {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept' : 'application/json', 'Authorization' : 'Bearer ' + this.token });
     let options = new RequestOptions({ headers: headers });
 
-    this.http.post(this.data.link_hosting+"users/", input, options).subscribe(data => {
+    this.http.post(this.datas.link_hosting+"order/edit/"+ this.data.id, input, options).subscribe(data => {
       loading.dismiss();
       let response = data.json();
       // this.showAlert("Update Berhasil");

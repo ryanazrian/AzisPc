@@ -28,6 +28,10 @@ export class DetailPage {
   tungguKonfirm = true;
   reparasi = true;
   selesai = true;
+  split : string;
+  count : number;
+  datenow : any;
+  mulaiReparasi : any;
   gambar:string =  "http://azizpc.codepanda.web.id/";
 
   data : any;
@@ -44,6 +48,7 @@ export class DetailPage {
                 console.log(this.data);
                 this.getToken();
                 this.status(this.data.status);
+                this.coutdown();
   }
 
   status(data){
@@ -207,6 +212,22 @@ export class DetailPage {
         loading.dismiss();
         this.showError(err);
         });
+  }
+
+  coutdown(){
+    this.split = this.data.dateMulaiReparasi;
+    this.mulaiReparasi = this.split.split("-");
+    
+    // console.log(hasil);
+
+    this.datenow = new Date().toLocaleDateString();
+    var now = this.datenow.split("/");
+    // console.log(now[1]);
+
+     this.count = Math.abs(Math.abs(this.mulaiReparasi[2] - now[1])-this.data.durasi);
+
+    //  console.log(count);
+     
   }
 
   ionViewDidLoad() {

@@ -59,14 +59,14 @@
           <div class="lingkaran1"></div>
         </ion-avatar>
         <h2>Penjemputan</h2>
-        <h3>Tanggal : {{data.dateIn}} </h3>
+        <h3>Dalam proses penjemputan</h3>
       </ion-item>
       <ion-item class="icondisable" [hidden]="jemput">
         <ion-avatar item-start>
           <div class="lingkaran"></div>
         </ion-avatar>
         <h2>Penjemputan</h2>
-        <h3>Tanggal : {{data.dateIn}} </h3>
+        <h3>Tanggal : {{data.datePenjemputan}} </h3>
       </ion-item>
 
       <ion-item class="iconable" [hidden]="!diagnosa">
@@ -74,14 +74,14 @@
           <div class="lingkaran1"></div>
         </ion-avatar>
         <h2>Diagnosa</h2>
-        <h3>Tanggal : -</h3>
+        <h3>Dalam proses diagnosa</h3>
       </ion-item>
       <ion-item class="icondisable" [hidden]="diagnosa">
           <ion-avatar item-start>
             <div class="lingkaran"></div>
           </ion-avatar>
           <h2>Diagnosa</h2>
-          <h3>Tanggal : -</h3>
+          <h3>Tanggal : {{data.dateDiagnosa}}</h3>
         </ion-item>
 
       <ion-item class="iconable" [hidden]="!konfirmasi">
@@ -89,7 +89,7 @@
           <div class="lingkaran1"></div>
         </ion-avatar>
         <h2>Konfirmasi</h2>
-        <h3>Tanggal : -</h3>
+        <!-- <h3>Tanggal : -</h3> -->
         <h3>Harga   : Rp{{data.harga}}</h3>
         <button ion-button color="secondary" [disabled]="!konfirmasi" (click)="Terima()">Terima</button>
         <button ion-button color="danger" [disabled]="!konfirmasi" (click)="Batal()">Batal</button>
@@ -99,8 +99,8 @@
           <div class="lingkaran"></div>
         </ion-avatar>
         <h2>Konfirmasi</h2>
-        <h3>Tanggal : -</h3>
-        <h3>Harga   : -</h3>
+        <!-- <h3>Tanggal : -</h3> -->
+        <h3>Harga   :  Rp{{data.harga}}</h3>
         <!-- <button ion-button color="secondary" [disabled]="konfirmasi">Terima</button>
         <button ion-button color="danger" [disabled]="konfirmasi">Batal</button> -->
       </ion-item>
@@ -117,7 +117,7 @@
           <div class="lingkaran1"></div>
         </ion-avatar>
         <h2>Reparasi</h2>
-        <h3>Tanggal : -</h3>
+        <h3>Reparasi dimulai Tanggal : {{data.dateMulaiReparasi}}</h3>
       </ion-item>
       <ion-item class="icondisable" [hidden]="reparasi">
         <ion-avatar item-start>

@@ -49,7 +49,6 @@ export class DetailPage {
                 console.log(this.data);
                 this.getToken();
                 this.status(this.data.status);
-                this.coutdown();
   }
 
   status(data){
@@ -95,6 +94,7 @@ export class DetailPage {
       this.konfirmasi = false;
       this.tungguKonfirm = false;
       this.reparasi = true;
+      this.coutdown();
       this.selesai = false;
     }
     else if(data == 7){
@@ -231,6 +231,12 @@ export class DetailPage {
     //  this.count = Math.abs(Math.abs(this.mulaiReparasi[2] - now[1])-this.data.durasi);
      var diff = Math.abs(this.datenow - this.mulaiReparasi)/(one_day)+1;
      this.countDays = diff.toFixed();
+     if(this.countDays >=0){
+       this.countDays;
+     }
+     else{
+       this.countDays = 0;
+     }
      console.log(this.countDays);
 
     //  console.log(count);

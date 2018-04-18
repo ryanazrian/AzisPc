@@ -30,6 +30,7 @@ export class DetailPage {
   selesai = true;
   split : string;
   count : number;
+  countDays : any;
   datenow : any;
   mulaiReparasi : any;
   gambar:string =  "http://azizpc.codepanda.web.id/";
@@ -215,16 +216,22 @@ export class DetailPage {
   }
 
   coutdown(){
-    this.split = this.data.dateMulaiReparasi;
-    this.mulaiReparasi = this.split.split("-");
+    // this.split = this.data.dateMulaiReparasi;
+    // this.mulaiReparasi = this.split.split("-");
     
-    // console.log(hasil);
+    var one_day=1000*60*60*24
+    this.mulaiReparasi = new Date(new Date(this.data.dateMulaiReparasi).getTime()+(this.data.durasi*one_day));
 
-    this.datenow = new Date().toLocaleDateString();
-    var now = this.datenow.split("/");
+    console.log(this.mulaiReparasi);
+
+    this.datenow = new Date();
+    // var now = this.datenow.split("/");
     // console.log(now[1]);
 
-     this.count = Math.abs(Math.abs(this.mulaiReparasi[2] - now[1])-this.data.durasi);
+    //  this.count = Math.abs(Math.abs(this.mulaiReparasi[2] - now[1])-this.data.durasi);
+     var diff = Math.abs(this.datenow - this.mulaiReparasi)/(one_day)+1;
+     this.countDays = diff.toFixed();
+     console.log(this.countDays);
 
     //  console.log(count);
      

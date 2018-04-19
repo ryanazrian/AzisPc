@@ -31,7 +31,7 @@
       <div class="row">
         <div col-4>Tanggal selesai</div>
         <div col-1>:</div>
-        <div col-7>-</div>
+        <div col-7>{{tanggalSelesai}}</div>
       </div>
       <div class="row">
         <div col-4>Kelengkapan</div>
@@ -145,12 +145,13 @@
           <div class="lingkaran"></div>
         </ion-avatar>
         <h2>Selesai</h2>
-        <h3 *ngIf="data.dateSelesai">{{tanggalSelesai}}>Tanggal : {{tanggalSelesai}}</h3>
+        <h3 *ngIf="data.dateSelesai">Tanggal : {{tanggalSelesai}}</h3>
         <h3 *ngIf="!data.dateSelesai">Tanggal : - </h3>
+        <!-- <h3 *ngIf="data.status == 8">Barang Sudah diambil</h3> -->
         <h3>Garansi :-</h3>
       </ion-item>
       
-      <div *ngIf="data.status == 7" padding (click)="review()">
+      <div *ngIf="data.status == 7 || data.status == 8" padding (click)="review()">
         <button ion-button block padding [disabled]="false">Review</button>
       </div>
     </ion-list>

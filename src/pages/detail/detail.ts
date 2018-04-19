@@ -38,6 +38,13 @@ export class DetailPage {
   data : any;
   token: string;
 
+  tanggalReparasi : any;
+  tanggalDiagnosa : any;
+  tanggalIn : any;
+  tanggalPenjemputan : any;
+  tanggalPenjemputan1 : any;
+  tanggalSelesai : any;
+
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               public loadCtrl : LoadingController,
@@ -49,6 +56,15 @@ export class DetailPage {
                 console.log(this.data);
                 this.getToken();
                 this.status(this.data.status);
+                this.tanggal();
+  }
+
+  tanggal(){
+    this.tanggalPenjemputan = new Date(this.data.datePenjemputan).toDateString();
+    this.tanggalDiagnosa = new Date(this.data.dateDiagnosa).toDateString();
+    this.tanggalReparasi = new Date(this.data.dateMulaiReparasi).toDateString();
+    this.tanggalSelesai = new Date(this.data.dateSelesai).toDateString();
+    this.tanggalIn = new Date(this.data.dateIn).toDateString();
   }
 
   status(data){
@@ -148,7 +164,8 @@ export class DetailPage {
           text: 'Ya',
           handler: () => {
             console.log('Agree clicked');
-            this.data.status = 99;
+            this.updateStatus(4);
+            this.status(4);
           }
         },
         {
@@ -229,7 +246,7 @@ export class DetailPage {
     // console.log(now[1]);
 
     //  this.count = Math.abs(Math.abs(this.mulaiReparasi[2] - now[1])-this.data.durasi);
-     var diff = Math.abs(this.datenow - this.mulaiReparasi)/(one_day)+1;
+     var diff = Math.abs(this.datenow - this.mulaiReparasi)/(one_day);
      this.countDays = diff.toFixed();
      if(this.countDays >=0){
        this.countDays;

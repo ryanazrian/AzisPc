@@ -21,7 +21,7 @@ import { Data } from '../provider/data';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   
-    rootPage: any = LoginPage;
+    rootPage: any = HomePage;
   
     pages: Array<{title: string, component: any, icon: string}>;
   

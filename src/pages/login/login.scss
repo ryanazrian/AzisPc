@@ -1,4 +1,7 @@
 page-login {
+    ion-content {
+        margin-top: 50px !important;
+    }
     .masukFont{
         padding-top: 15vw;
         padding-bottom: 9vw;
@@ -53,7 +56,7 @@ page-login {
     }
 
     .Warning {
-        font-size: 5vw;
+        font-size: 3vw;
     }
 
     .Head {
@@ -65,7 +68,7 @@ page-login {
         color: gray;
     }
     .Link {
-        font-size: 5vw;
+        font-size: 4vw;
         color: #1e99d0;
     }
     ion-title{

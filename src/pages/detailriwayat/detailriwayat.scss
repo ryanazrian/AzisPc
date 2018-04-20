@@ -1,0 +1,40 @@
+page-detailriwayat {
+    .judul {
+        text-align: center;
+    }
+
+    pre {
+        font-family: roboto;
+    }
+
+    .iconable{
+        color: black;
+    }
+
+    .icondisable{
+        color: gray;
+    }
+
+    ion-icon {
+        font-size: 40px; //Preferred size here
+    }
+
+    .lingkaran{
+        background-color: red;
+        height: 3vw;
+        width: 3vw;
+        border-radius: 100%;
+        margin-left: 30%;
+        margin-top: 25%;
+    }
+
+    .lingkaran1{
+        background-color:green;
+        height: 3vw;
+        width: 3vw;
+        border-radius: 100%;
+        margin-left: 30%;
+        margin-top: 25%;
+    }
+
+}

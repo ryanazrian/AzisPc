@@ -4,6 +4,7 @@ import { AlertController, LoadingController, ToastController } from 'ionic-angul
 import { AddreviewPage } from '../addreview/addreview';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { Data } from '../../provider/data';
+import { DetailriwayatPage } from '../detailriwayat/detailriwayat';
 
 
 /**
@@ -95,6 +96,10 @@ export class HistoryPage {
       duration: 3000
     });
     toast.present();
+  }
+
+  detail(){
+    this.navCtrl.push(DetailriwayatPage)
   }
 
 }

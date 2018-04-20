@@ -98,8 +98,8 @@ export class HistoryPage {
     toast.present();
   }
 
-  detail(){
-    this.navCtrl.push(DetailriwayatPage)
+  detail(data){
+    this.navCtrl.push(DetailriwayatPage, data)
   }
 
 }

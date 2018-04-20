@@ -18,13 +18,19 @@
           <ion-list>
             <h5 class="head">Nama Barang</h5>
             <ion-item>
-              <ion-input type="text" [(ngModel)]="namaBarang"  [ngModelOptions]="{standalone: true}"placeholder="Ex. Laptop Asus ROG Gx600"></ion-input>
-            </ion-item>
+              <ion-input type="text" [(ngModel)]="namaBarang" #barang="ngModel" [ngModelOptions]="{standalone: true}"placeholder="Ex. Laptop Asus ROG Gx600" required></ion-input>
+            </ion-item> 
+            <p ion-text [hidden]="barang.valid || submitted == false" color="danger" padding-left class="Warning">
+              Nama barang harus diisi
+              </p>
 
             <h5 class="head">Keluhan</h5>
             <ion-item>
-              <ion-textarea [(ngModel)]="keluhan"  [ngModelOptions]="{standalone: true}" placeholder="Keluhan Ananda"></ion-textarea>
+              <ion-textarea [(ngModel)]="keluhan" #keluh="ngModel" [ngModelOptions]="{standalone: true}" placeholder="Keluhan Ananda" required></ion-textarea>
             </ion-item>
+            <p ion-text [hidden]="keluh.valid || submitted == false" color="danger" padding-left class="Warning">
+              Keluhan harus diisi
+            </p>
 
             <h5 class="head"> Kelengkapan Barang</h5>
             <ion-list>
@@ -46,7 +52,7 @@
               </ion-item>
             </ion-list>
 
-            <h5 class="head">Jenis Servis </h5>
+            <!-- <h5 class="head">Jenis Servis </h5>
             <ion-item>
                 <ion-label>Jenis Service</ion-label>
                 <ion-select [(ngModel)]="service" [ngModelOptions]="{standalone: true}" multiple="true">
@@ -62,18 +68,23 @@
                   <ion-option value="Ganti Mainboard">Ganti Mainboard/Keybiard/Casing</ion-option>
                   <ion-option value="Service Panggilan">Service Panggilan</ion-option>
                 </ion-select>
-              </ion-item>
+              </ion-item> -->
 
               <h5 class="head">Alamat Penjemputan</h5>
               <ion-item>
-                <ion-input type="text" [(ngModel)]="alamat"  [ngModelOptions]="{standalone: true}" placeholder="Ex. IPB dramaga"></ion-input>
+                <ion-input type="text" [(ngModel)]="alamat" #address ="ngModel" [ngModelOptions]="{standalone: true}" placeholder="Ex. IPB dramaga"></ion-input>
               </ion-item>
-
+              <p ion-text [hidden]="keluh.valid || submitted == false" color="danger" padding-left class="Warning">
+                Alamat harus diisi
+              </p>
               <h5 class="head">Unggah Foto Barang</h5>
               <button ion-button icon-left (click)="tambahGambar()">
                 <ion-icon name="camera"></ion-icon>
                 Ambil Foto
               </button>
+              <p ion-text [hidden]="validFoto.valid || submitted == false" color="danger" padding-left class="Warning">
+                Foto harus diisi
+              </p>
               <img [src]="image" *ngIf="image"/>
           </ion-list>
     </form>

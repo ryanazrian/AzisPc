@@ -56,6 +56,7 @@ export class AddrepairPage {
   percentageLoaded: any
 
 
+
   lat : string;
   lang : string;
   token : any;
@@ -211,7 +212,7 @@ export class AddrepairPage {
              this.lokasi = marker.getPosition()
              this.lat = this.lokasi.lat();
              this.lang = this.lokasi.lng();
-             console.log(marker);             
+             console.log(this.lang);             
           // })
        }
 
@@ -225,36 +226,56 @@ export class AddrepairPage {
     this.getLat();
 
     console.log(this.token);
-    console.log(this.goo.f.lang);
+    // console.log(this.goo.f.lang);
 
     if(form.valid){
       loading.present();
 
-      let kelengkapan = 'charger = '+this.charger + ',' +  
-                         'mouse = '+ this.mouse + ',' + 
-                         'mushrooms = '+ this.mushrooms + ',' +
-                         'cd = '+this.cd;
-      console.log(this.tipeKerusakan)
-      if(this.service != "a"){
-        this.tipeKerusakan = JSON.stringify(this.service);
-        this.tipeKerusakan = this.tipeKerusakan.replace('[', '');
-        this.tipeKerusakan = this.tipeKerusakan.replace(']', ''); 
-        for(var i= 0 ; i< this.service.length*2;i++)
-        this.tipeKerusakan = this.tipeKerusakan.replace('"', '');
+      var kelengkapans = [];
+      if(this.charger){
+        var chargers = "chargers";
+        kelengkapans[kelengkapans.length] = chargers;
+      }
+      if(this.mouse){
+        var mouses = "mouse";
+        kelengkapans[kelengkapans.length] = mouses;
+      }
+      if(this.mushrooms){
+        var mushroomss = "Tas";
+        kelengkapans[kelengkapans.length] = mushroomss;
+      }
+      if(this.cd){
+        var cds = "cd";
+        kelengkapans[kelengkapans.length] = cds;
       }
 
-      console.log(this.tipeKerusakan);
+
+
+      // let kelengkapan = chargers + ',' + mouses + ',' + mushroomss + ',' +cds;
+      // console.log(this.tipeKerusakan)
+      if(kelengkapans.length != 0){
+        var kelengkapan = JSON.stringify(kelengkapans);
+        kelengkapan = kelengkapan.replace('[', '');
+        kelengkapan = kelengkapan.replace(']', ''); 
+        for(var i= 0 ; i< kelengkapans.length*2;i++)
+        kelengkapan = kelengkapan.replace('"', '');
+      }
+      else{
+        kelengkapan = "Tidak ada barang";
+      }
+
+      console.log(kelengkapan);
 
       let input = JSON.stringify({
         user_id : this.id, 
         namaBarang : this.namaBarang,
         keluhan : this.keluhan,
         kelengkapan : kelengkapan,
-        tipeKerusakan : this.tipeKerusakan,
+        // tipeKerusakan : "this.tipeKerusakan",
         alamat : this.alamat,
         status : "1", 
-        langitude : this.goo.f.lat,
-        longitude : this.goo.f.lang
+        langitude : this.lat,
+        longitude : this.lang
       }); 
       console.log("input", input)
       console.log(this.service);
@@ -342,14 +363,14 @@ export class AddrepairPage {
       // this.img = 'data:image/jpeg;base64,' + result;
 //      this.postPhoto(result);
 
-      //this.validPhoto=true;
+      this.validFoto=true;
 
     }
     catch (e) {
       console.error(e);
       alert("error");
     }
-
+    
   }
 
   getPhotoFromGallery(){
@@ -366,7 +387,7 @@ export class AddrepairPage {
       // this.img = 'data:image/jpeg;base64,' + imageData;
   //    this.postPhoto(imageData);
       
-      //this.validPhoto=true;
+      this.validFoto=true;
       }, (err) => {
     });
   }

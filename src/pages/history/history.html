@@ -10,19 +10,23 @@
   
   
   <ion-content>
-      <ion-card *ngFor="let data of datas" (click)="detail()">
+      <ion-card class="myCard" *ngFor="let data of datas" (click)="detail(data)">
           <div class="row">
             <div col-6>
               <div class="row nama_barang">
-                data.namaBarang
+                {{data.namaBarang}}
               </div>
               <div class="row harga_barang">
-                Rp. data.harga
+                Rp. {{data.harga}}
               </div>
             </div>
             <div col-6 class="status_barang">
-              <div class="help">
-                Status : Batal / Sukses
+              <div *ngIf="data.status == 4" class="statusBatal">
+                Batal
+              </div>
+
+              <div *ngIf="data.status == 8" class="statusBerhasil">
+                Batal
               </div>
               <!-- <div class="help" *ngIf="data.status ==1">
                 Status: Penjemputan

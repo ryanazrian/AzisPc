@@ -211,7 +211,7 @@ export class AddrepairPage {
              this.lokasi = marker.getPosition()
              this.lat = this.lokasi.lat();
              this.lang = this.lokasi.lng();
-             console.log(marker);             
+             console.log(this.lang);             
           // })
        }
 
@@ -225,7 +225,7 @@ export class AddrepairPage {
     this.getLat();
 
     console.log(this.token);
-    console.log(this.goo.f.lang);
+    // console.log(this.goo.f.lang);
 
     if(form.valid){
       loading.present();
@@ -234,14 +234,14 @@ export class AddrepairPage {
                          'mouse = '+ this.mouse + ',' + 
                          'mushrooms = '+ this.mushrooms + ',' +
                          'cd = '+this.cd;
-      console.log(this.tipeKerusakan)
-      if(this.service != "a"){
-        this.tipeKerusakan = JSON.stringify(this.service);
-        this.tipeKerusakan = this.tipeKerusakan.replace('[', '');
-        this.tipeKerusakan = this.tipeKerusakan.replace(']', ''); 
-        for(var i= 0 ; i< this.service.length*2;i++)
-        this.tipeKerusakan = this.tipeKerusakan.replace('"', '');
-      }
+      // console.log(this.tipeKerusakan)
+      // if(this.service != "a"){
+      //   this.tipeKerusakan = JSON.stringify(this.service);
+      //   this.tipeKerusakan = this.tipeKerusakan.replace('[', '');
+      //   this.tipeKerusakan = this.tipeKerusakan.replace(']', ''); 
+      //   for(var i= 0 ; i< this.service.length*2;i++)
+      //   this.tipeKerusakan = this.tipeKerusakan.replace('"', '');
+      // }
 
       console.log(this.tipeKerusakan);
 
@@ -250,11 +250,11 @@ export class AddrepairPage {
         namaBarang : this.namaBarang,
         keluhan : this.keluhan,
         kelengkapan : kelengkapan,
-        tipeKerusakan : this.tipeKerusakan,
+        // tipeKerusakan : "this.tipeKerusakan",
         alamat : this.alamat,
         status : "1", 
-        langitude : this.goo.f.lat,
-        longitude : this.goo.f.lang
+        langitude : this.lat,
+        longitude : this.lang
       }); 
       console.log("input", input)
       console.log(this.service);
@@ -342,14 +342,14 @@ export class AddrepairPage {
       // this.img = 'data:image/jpeg;base64,' + result;
 //      this.postPhoto(result);
 
-      //this.validPhoto=true;
+      this.validFoto=true;
 
     }
     catch (e) {
       console.error(e);
       alert("error");
     }
-
+    
   }
 
   getPhotoFromGallery(){
@@ -366,7 +366,7 @@ export class AddrepairPage {
       // this.img = 'data:image/jpeg;base64,' + imageData;
   //    this.postPhoto(imageData);
       
-      //this.validPhoto=true;
+      this.validFoto=true;
       }, (err) => {
     });
   }

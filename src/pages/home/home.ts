@@ -72,7 +72,7 @@ export class HomePage {
         loading.dismiss();      
         if(response){
           let datas=response.data;
-          this.datas = datas;
+          this.datas = this.binding(datas);
           this.datas.reverse();
           console.log(this.datas);
           // this.binding();
@@ -86,20 +86,16 @@ export class HomePage {
     })  
   }
 
-  binding(){
-    this.data.getData().then((data) =>{
-      this.dataku = data;
-      console.log(this.dataku);
-      this.id = this.dataku.id;
+  binding(datas){
+
       this.servisan = [];
-      for(var i = 0, j= 0; i < this.datas.length;i++){
-        if(this.id == this.datas[i].customer_id){
-            this.servisan[j] = this.datas[i];
+      for(var i = 0, j= 0; i < datas.length;i++){
+        if(datas[i].status != 4){
+            this.servisan[j] = datas[i];
             j++;
         }
       }
-      console.log(this.servisan);
-    })             
+      return this.servisan;
   }
 
   showAlert(message){

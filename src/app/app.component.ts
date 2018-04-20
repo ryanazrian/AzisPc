@@ -54,8 +54,24 @@ export class MyApp {
         // Here you can do any higher level native things you might need.
         this.statusBar.styleDefault();
         this.splashScreen.hide();
+        var notificationOpenedCallback = function(jsonData) {
+          console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+        };
+    
+        window["plugins"].OneSignal
+          .startInit("6f79392f-a254-4fcc-91d0-7ddc15ad7ea6", "683464937188")
+          .handleNotificationOpened(notificationOpenedCallback)
+          .endInit();
       });
     }
+
+    getids(){
+      window["plugins"].OneSignal
+      .getids().then((id)=>{
+        console.log("APP id", id);
+      })
+    }
+
   
     openPage(page) {
       // Reset the content nav to have just this page

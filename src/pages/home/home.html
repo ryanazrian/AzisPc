@@ -16,9 +16,32 @@
       <ion-card-content class="content">
         <div class="borderCard">
         </div>
-        <div class="row" class="status">
+
+        <div class="row" *ngIf="data.status ==1" class="status">
+          Status: Penjemputan
+        </div>
+
+        <div class="row" *ngIf="data.status ==2" class="status">
           Status: Diagnosa
         </div>
+
+        <div class="row" *ngIf="data.status ==3" class="status">
+          Status: Silahkan lakukan konfirmasi
+        </div>
+
+        <div class="row" *ngIf="data.status ==5" class="status">
+          Status: Menunggu pengerjaan
+        </div>
+
+        <div class="row" *ngIf="data.status ==6" class="status">
+          Status: Dalam proses reparasi
+        </div>
+
+        <div class="row" *ngIf="data.status ==7" class="status">
+          Status: Selesai
+        </div>
+
+
         <div class="statBorder">
         </div>
         <div class="judul">

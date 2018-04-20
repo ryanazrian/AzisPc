@@ -10,39 +10,17 @@
   
   
   <ion-content>
-    <ion-card>
-      <img src="assets/imgs/LogoAzizPC.jpg"/>
+    <ion-card *ngFor="let data of datas" (click)="detail(data)">
+      <img *ngIf="!data.foto" src="assets/imgs/rusak1.jpg"/>
+      <img [src]=this.gambar+data.foto *ngIf="data.foto" width="300" height="400"/>
         <ion-card-content>
           <ion-card-title>
-            Lenovo Yoga
+            {{data.namaBarang}}
           </ion-card-title>
-            <p class="Status"> Status: Selesai</p>
+            <p class="Status" *ngIf="data.status == 9"> Status: Selesai</p>
+            <p class="Status" *ngIf="data.status == 4"> Status: Dibatalkan</p>
             <h3 class="Link">
-              <a (click)="detail()"> Detail </a>
-            </h3>
-        </ion-card-content>
-    </ion-card>
-    <ion-card>
-      <img src="assets/imgs/LogoAzizPC.jpg"/>
-        <ion-card-content>
-          <ion-card-title>
-            Lenovo Yoga
-          </ion-card-title>
-            <p class="Status"> Status: Dibatalkan</p>
-            <h3 class="Link">
-              <a (click)="detail()"> Detail </a>
-            </h3>
-        </ion-card-content>
-    </ion-card>
-    <ion-card>
-      <img src="assets/imgs/LogoAzizPC.jpg"/>
-        <ion-card-content>
-          <ion-card-title>
-            Lenovo Yoga
-          </ion-card-title>
-            <p class="Status"> Status: Diagnosa</p>
-            <h3 class="Link">
-              <a (click)="detail()"> Detail </a>
+              <a (click)="detail(data)"> Detail </a>
             </h3>
         </ion-card-content>
     </ion-card>

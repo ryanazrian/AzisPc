@@ -25,12 +25,25 @@ export class DetailPage {
   jemput = true;
   diagnosa = true;
   konfirmasi = true;
+  tungguKonfirm = true;
   reparasi = true;
   selesai = true;
+  split : string;
+  count : number;
+  countDays : any;
+  datenow : any;
+  mulaiReparasi : any;
   gambar:string =  "http://azizpc.codepanda.web.id/";
 
   data : any;
   token: string;
+
+  tanggalReparasi : any;
+  tanggalDiagnosa : any;
+  tanggalIn : any;
+  tanggalPenjemputan : any;
+  tanggalPenjemputan1 : any;
+  tanggalSelesai : any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -39,49 +52,72 @@ export class DetailPage {
               public http : Http,
               private datas : Data,
               public alertCtrl: AlertController) {
-                this. data = this.navParams.data;
-                this.data.status = 3;
+                this.data = this.navParams.data;
                 console.log(this.data);
                 this.getToken();
-                this.status();
+                this.status(this.data.status);
+                this.tanggal();
   }
 
-  status(){
-    if(this.data.status ==1){
+  tanggal(){
+    this.tanggalPenjemputan = new Date(this.data.datePenjemputan).toDateString();
+    this.tanggalDiagnosa = new Date(this.data.dateDiagnosa).toDateString();
+    this.tanggalReparasi = new Date(this.data.dateMulaiReparasi).toDateString();
+    this.tanggalSelesai = new Date(this.data.dateSelesai).toDateString();
+    this.tanggalIn = new Date(this.data.dateIn).toDateString();
+  }
+
+  status(data){
+    if(data ==1){
       this.jemput = true;
       this.diagnosa = false;
       this.konfirmasi = false;
+      this.tungguKonfirm = false;
       this.reparasi = false;
       this.selesai = false;
     }
 
-    else if(this.data.status == 2){
+    else if(data == 2){
       this.jemput = false;
       this.diagnosa = true;
       this.konfirmasi = false;
+      this.tungguKonfirm = false;
       this.reparasi = false;
       this.selesai = false;
     }
 
-    else if(this.data.status == 3){
+    else if(data == 3){
       this.jemput = false;
       this.diagnosa = false;
       this.konfirmasi = true;
+      this.tungguKonfirm = false;
       this.reparasi = false;
       this.selesai = false;
     }
 
-    else if(this.data.status == 4){
+    else if(data == 5){
       this.jemput = false;
       this.diagnosa = false;
       this.konfirmasi = false;
-      this.reparasi = true;
+      this.tungguKonfirm = true;
+      this.reparasi = false;
       this.selesai = false;
     }
-    else if(this.data.status == 5){
+
+    else if(data == 6){
       this.jemput = false;
       this.diagnosa = false;
       this.konfirmasi = false;
+      this.tungguKonfirm = false;
+      this.reparasi = true;
+      this.coutdown();
+      this.selesai = false;
+    }
+    else if(data == 7){
+      this.jemput = false;
+      this.diagnosa = false;
+      this.konfirmasi = false;
+      this.tungguKonfirm = false;
       this.reparasi = false;
       this.selesai = true;
     }
@@ -89,6 +125,7 @@ export class DetailPage {
       this.jemput = false;
       this.diagnosa = false;
       this.konfirmasi = false;
+      this.tungguKonfirm = false;
       this.reparasi = false;
       this.selesai = false;
     }
@@ -103,8 +140,8 @@ export class DetailPage {
           text: 'Ya',
           handler: () => {
             console.log('Agree clicked');
-            this.data.status = 4;
-            this.status();
+            this.updateStatus(5);
+            this.status(5);
           }
         },
         {
@@ -127,7 +164,8 @@ export class DetailPage {
           text: 'Ya',
           handler: () => {
             console.log('Agree clicked');
-            this.data.status = 99;
+            this.updateStatus(4);
+            this.status(4);
           }
         },
         {
@@ -177,7 +215,7 @@ export class DetailPage {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept' : 'application/json', 'Authorization' : 'Bearer ' + this.token });
     let options = new RequestOptions({ headers: headers });
 
-    this.http.post(this.data.link_hosting+"users/", input, options).subscribe(data => {
+    this.http.post(this.datas.link_hosting+"order/edit/"+ this.data.id, input, options).subscribe(data => {
       loading.dismiss();
       let response = data.json();
       // this.showAlert("Update Berhasil");
@@ -192,6 +230,34 @@ export class DetailPage {
         loading.dismiss();
         this.showError(err);
         });
+  }
+
+  coutdown(){
+    // this.split = this.data.dateMulaiReparasi;
+    // this.mulaiReparasi = this.split.split("-");
+    
+    var one_day=1000*60*60*24
+    this.mulaiReparasi = new Date(new Date(this.data.dateMulaiReparasi).getTime()+(this.data.durasi*one_day));
+
+    console.log(this.mulaiReparasi);
+
+    this.datenow = new Date();
+    // var now = this.datenow.split("/");
+    // console.log(now[1]);
+
+    //  this.count = Math.abs(Math.abs(this.mulaiReparasi[2] - now[1])-this.data.durasi);
+     var diff = Math.abs(this.datenow - this.mulaiReparasi)/(one_day);
+     this.countDays = diff.toFixed();
+     if(this.countDays >=0){
+       this.countDays;
+     }
+     else{
+       this.countDays = 0;
+     }
+     console.log(this.countDays);
+
+    //  console.log(count);
+     
   }
 
   ionViewDidLoad() {

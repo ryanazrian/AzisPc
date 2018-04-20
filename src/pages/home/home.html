@@ -8,39 +8,42 @@
 </ion-header>
 
 <ion-content no-padding>
-  <ion-card *ngFor="let data of datas" (click)="detail(data)">
+  <ion-card class="myCard"*ngFor="let data of datas" (click)="detail(data)">
     <div class="row">
       <div col-6>
         <div class="row nama_barang">
           {{data.namaBarang}}
         </div>
-        <div class="row harga_barang">
+        <div *ngIf="data.harga" class="row harga_barang">
           Rp.{{data.harga}}
+        </div>
+        <div *ngIf="!data.harga" class="row harga_barang">
+          Rp. -
         </div>
       </div>
       <div col-6 class="status_barang">
-        <div class="help" *ngIf="data.status ==1">
-          Status: Penjemputan
+        <div class="active" *ngIf="data.status ==1">
+          Penjemputan
         </div>
 
-        <div class="help" *ngIf="data.status ==2">
-          Status: Diagnosa
+        <div class="active" *ngIf="data.status ==2">
+           Diagnosa
         </div>
 
         <div class="help" *ngIf="data.status ==3">
-          Status: Silahkan lakukan konfirmasi
+          Silahkan lakukan konfirmasi
         </div>
 
-        <div class="help" *ngIf="data.status ==5">
-          Status: Menunggu pengerjaan
+        <div class="active" *ngIf="data.status ==5">
+          Menunggu pengerjaan
         </div>
 
-        <div class="help" *ngIf="data.status ==6">
-          Status: Dalam proses reparasi
+        <div class="active" *ngIf="data.status ==6">
+          Dalam proses reparasi
         </div>
 
-        <div class="help" *ngIf="data.status ==7">
-          Status: Selesai
+        <div class="active" *ngIf="data.status ==7">
+          Selesai
         </div>
       </div>
     </div>
@@ -89,7 +92,7 @@
       </ion-card-content>
   </ion-card> -->
 
-  <ion-fab right bottom>
+  <ion-fab right bottom class="tambahBarang">
     <button ion-fab color="light" (click)="add()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>

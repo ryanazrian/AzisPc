@@ -30,6 +30,7 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { Geolocation, GeolocationOptions ,Geoposition ,PositionError }  from '@ionic-native/geolocation';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
 import { AddreviewPage } from '../pages/addreview/addreview';
+import { DetailriwayatPage } from '../pages/detailriwayat/detailriwayat';
 
 
 
@@ -48,7 +49,8 @@ import { AddreviewPage } from '../pages/addreview/addreview';
     ServicePage,
     AddrepairPage,
     EditProfilePage,
-    AddreviewPage
+    AddreviewPage,
+    DetailriwayatPage
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,8 @@ import { AddreviewPage } from '../pages/addreview/addreview';
     AddrepairPage,
     EditProfilePage,
     AddrepairPage,
-    AddreviewPage
+    AddreviewPage,
+    DetailriwayatPage
   ],
   providers: [
     StatusBar,

@@ -4,12 +4,12 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-</ion-header>
-
 
 <ion-content padding>
+  <button class="back_button" start (click)="signIn()">
+    <ion-icon class="back" name="arrow-round-back"></ion-icon>
+  </button>
+
   <div class="title">Daftar</div>
 
   <form #registerForm="ngForm" novalidate>
@@ -20,7 +20,7 @@
             required>
           </ion-input>
         </ion-item>
-        <p ion-text [hidden]="nama.valid || submitted == false" color="danger" padding-left class="Warning">
+        <p ion-text [hidden]="nama.valid || submitted == false" color="danger" class="Warning">
         Nama harus diisi
         </p> 
 
@@ -30,7 +30,7 @@
             required>
           </ion-input>
         </ion-item>
-        <p ion-text [hidden]="mail.valid || submitted == false" color="danger" padding-left class="Warning">
+        <p ion-text [hidden]="mail.valid || submitted == false" color="danger" class="Warning">
         Email harus diisi
         </p>
 
@@ -40,7 +40,7 @@
               required>
             </ion-input>
           </ion-item>
-          <p ion-text [hidden]="nomor.valid || submitted == false" color="danger" padding-left class="Warning">
+          <p ion-text [hidden]="nomor.valid || submitted == false" color="danger" class="Warning">
           Nomor Handphone harus diisi (min. 11 Digit)
           </p>
   
@@ -51,7 +51,7 @@
           <button class="tombol" [hidden]="lihat == false" (click)="showPassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye" class='icon' color="primary2"> </ion-icon> </button>
           <button class="tombol" [hidden]="lihat == true" (click)="hidePassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye-off" class='icon' color="primary2"> </ion-icon> </button>
         </ion-item>
-        <p ion-text [hidden]="pass.valid || submitted == false" color="danger" padding-left class="Warning">
+        <p ion-text [hidden]="pass.valid || submitted == false" color="danger" class="Warning">
           Password harus diisi
         </p>
 
@@ -61,22 +61,14 @@
             required>
           </ion-input>
         </ion-item>
-        <p ion-text [hidden]="alamat.valid || submitted == false" color="danger" padding-left class="Warning">
+        <p ion-text [hidden]="alamat.valid || submitted == false" color="danger" class="Warning">
         Alamat harus diisi
         </p> 
-
-
       </ion-list>
-  
-      <ion-row>
-        <ion-col>
-          <button class="ButtonMasuk" ion-button color="AyoDermawan" (click)="signUp(registerForm)" block><p class="ButtonWord">Buat</p></button>
-        </ion-col>
-      </ion-row>
+
   </form>
 </ion-content>
 
-<ion-footer class="kaki">
-  <font color="black">Sudah punya akun?</font>
-  <a class="Link" (click)="signIn()"> Masuk.</a>
+<ion-footer no-shadow>
+    <button class="ButtonMasuk" ion-button full color="AyoDermawan" (click)="signUp(registerForm)" block><p class="ButtonWord">Buat</p></button>
 </ion-footer>

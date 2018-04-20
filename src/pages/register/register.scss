@@ -1,3 +1,5 @@
+@import 'theme/variables.scss';
+
 page-register {
     ion-title{
         text-align: center;
@@ -38,10 +40,19 @@ page-register {
         
         float:right;
     }
-    .kaki{
-        padding: 3vw;
-        background-color: #bababa;
-        height: 13vw;
-        text-align: center;
+    .ButtonMasuk {
+        height: 45px;
+        font-size: 15px;
     }
+    .back_button {
+        background: transparent;
+        .back {
+            color: map-get($colors, primary);
+        }
+    }
+
+    .Warning {
+        font-size: 3vw;
+    }
+    
 }

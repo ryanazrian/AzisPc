@@ -36,4 +36,26 @@ page-history {
         vertical-align: middle;
         margin-right: 2vw;
     }
+
+    .statusBatal {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 4vw;
+        display: table-cell;
+        vertical-align: middle;
+        margin-right: 2vw;
+        color : #DC3545;
+    }
+
+    .statusBerhasil {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 4vw;
+        display: table-cell;
+        vertical-align: middle;
+        margin-right: 2vw;
+        color : #28A745;
+    }
+
+    .myCard{
+        border-radius: 20px;
+    }
 }

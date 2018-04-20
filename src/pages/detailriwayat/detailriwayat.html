@@ -17,7 +17,7 @@
   <img  src="assets/imgs/rusak.jpeg"/>
   <!-- <img [src]=this.gambar+data.foto *ngIf="data.foto"  width="460" height="300"/> -->
   <div padding>
-    <h2 class="judul"> data.namaBarang </h2>
+    <h2 class="judul"> {{data.namaBarang}} </h2>
       <!-- <div class="row">
         <div col-4>Nomor Telepon</div>
         <div col-1>:</div>
@@ -26,32 +26,33 @@
       <div class="row">
         <div col-4>Tanggal masuk</div>
         <div col-1>:</div>
-        <div col-7>tanggalIn</div>
+        <div col-7>{{tanggalIn}}</div>
       </div>
       <div class="row">
         <div col-4>Tanggal selesai</div>
         <div col-1>:</div>
-        <div col-7>-</div>
+        <div *ngIf="data.dateSelesai" col-7>{{tanggalSelesai}}</div>
+        <div *ngIf="!data.dateSelesai" col-7>-</div>
       </div>
       <div class="row">
         <div col-4>Kelengkapan</div>
         <div col-1>:</div>
-        <div col-7> data.kelengkapan</div>
+        <div col-7> {{data.kelengkapan}}</div>
       </div>
       <div class="row">
         <div col-4>Jenis servis</div>
         <div col-1>:</div>
-        <div col-7>data.tipeKerusakan</div>
+        <div col-7>{{data.tipeKerusakan}}</div>
       </div>
       <div class="row">
         <div col-4>Total biaya</div>
         <div col-1>:</div>
         <!-- <div col-7 *ngIf=!data.harga>-</div> -->
         <!-- <div col-7 *ngIf=data.harga>Rp data.harga</div> -->
-        <div col-7>Rp data.harga</div>
+        <div col-7>Rp {{data.harga}}</div>
       </div>
       <div class="row">
-        <div col-4>Garanis</div>
+        <div col-4>Garansi</div>
         <div col-1>:</div>
         <div col-7>X Hari</div>
       </div>

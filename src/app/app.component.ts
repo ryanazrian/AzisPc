@@ -11,6 +11,7 @@ import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
 import { HistoryPage } from '../pages/history/history';
 import { ServicePage } from '../pages/service/service';
+import { NavbarPage } from '../pages/navbar/navbar';
 
 import { Data } from '../provider/data';
 
@@ -18,6 +19,7 @@ import { Data } from '../provider/data';
 @Component({
   templateUrl: 'app.html'
 })
+
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   
@@ -32,8 +34,8 @@ export class MyApp {
       this.pages = [
         { title: 'Beranda', component: ServicePage, icon: 'home' },
         { title: 'Barang Anda', component: HomePage, icon: 'laptop' },
-        { title: 'Profil', component: ProfilePage, icon: 'person' },
         { title: 'Riwayat', component: HistoryPage, icon: 'time' },
+        { title: 'Profil', component: ProfilePage, icon: 'person' },
       ];
 
       // this.rootPage(LoginPage);

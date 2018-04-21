@@ -1,4 +1,4 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -31,6 +31,7 @@ import { Geolocation, GeolocationOptions ,Geoposition ,PositionError }  from '@i
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
 import { AddreviewPage } from '../pages/addreview/addreview';
 import { DetailriwayatPage } from '../pages/detailriwayat/detailriwayat';
+import { NavbarPage } from '../pages/navbar/navbar';
 
 
 
@@ -50,7 +51,8 @@ import { DetailriwayatPage } from '../pages/detailriwayat/detailriwayat';
     AddrepairPage,
     EditProfilePage,
     AddreviewPage,
-    DetailriwayatPage
+    DetailriwayatPage,
+    NavbarPage,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,8 @@ import { DetailriwayatPage } from '../pages/detailriwayat/detailriwayat';
     EditProfilePage,
     AddrepairPage,
     AddreviewPage,
-    DetailriwayatPage
+    DetailriwayatPage,
+    NavbarPage,
   ],
   providers: [
     StatusBar,
@@ -90,6 +93,9 @@ import { DetailriwayatPage } from '../pages/detailriwayat/detailriwayat';
     FileTransferObject,
     File
 
-  ]
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+  ],
 })
 export class AppModule {}

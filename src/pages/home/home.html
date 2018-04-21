@@ -1,13 +1,15 @@
-<ion-header color="aziznav">
+<!-- <ion-header color="aziznav">
   <ion-navbar color="nav">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Servis</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content no-padding>
+<page-navbar></page-navbar>
+
+<ion-content>
   <ion-card class="myCard"*ngFor="let data of datas" (click)="detail(data)">
     <div class="row">
       <div col-6>

@@ -6,6 +6,7 @@ import { NavController, LoadingController } from 'ionic-angular';
 import { DetailPage } from '../detail/detail';
 import { AddrepairPage } from '../addrepair/addrepair';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
+import { NavbarPage } from '../navbar/navbar';
 
 
 @Component({

@@ -93,7 +93,7 @@
         <h2>Konfirmasi</h2>
         <!-- <h3>Tanggal : -</h3> -->
         <h3>Harga   : Rp{{data.harga}}</h3>
-        <h3>Hasil diagnosa   : {{data.tipeKerusakan}}</h3>
+        <h3 class="hasil_diagnosa">Hasil diagnosa   : {{data.tipeKerusakan}}</h3>
         <button ion-button color="secondary" [disabled]="!konfirmasi" (click)="Terima()">Terima</button>
         <button ion-button color="danger" [disabled]="!konfirmasi" (click)="Batal()">Batal</button>
       </ion-item>

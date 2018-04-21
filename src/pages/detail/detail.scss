@@ -9,10 +9,12 @@ page-detail {
 
     .iconable{
         color: black;
+        border-radius: 12px;
     }
 
     .icondisable{
         color: gray;
+        border-radius: 12px;
     }
 
     ion-icon {
@@ -24,8 +26,8 @@ page-detail {
         height: 3vw;
         width: 3vw;
         border-radius: 100%;
-        margin-left: 30%;
-        margin-top: 25%;
+        margin-left : 4%;
+        margin-top : 6%
     }
 
     .lingkaran1{
@@ -33,8 +35,8 @@ page-detail {
         height: 3vw;
         width: 3vw;
         border-radius: 100%;
-        margin-left: 30%;
-        margin-top: 25%;
+        margin-left : 4%;
+        margin-top : 6%
     }
 
     .diagnosa{
@@ -56,6 +58,27 @@ page-detail {
 
     .scroll-content{
         background-color: #F3F4F7;
+    }
+
+    .title{
+        margin: 4px 0;
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: #222;
+        margin-left: 13vw;
+        margin-top: -6vw;
+        margin-bottom: 2vw;
+        padding-top: -9vw;
+    }
+
+    .subs{
+        margin-left : 13vw;
+        margin-bottom: 3vw;
+    }
+
+    .headers{
+        margin-left: -5vw;
+        margin-top: 2vw;
     }
 
 }

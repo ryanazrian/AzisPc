@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="nav">
-    <ion-title>detail</ion-title>
+    <ion-title class="headers">detail</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -66,105 +66,109 @@
     </div>
     
     <h2 class="judul"> Progres </h2>
-    <ion-list>
-
-      <ion-item class="iconable" [hidden]="!jemput">
+    <ion-card class="iconable" [hidden]="!jemput">
         <ion-avatar item-start>
           <div class="lingkaran1"></div>
         </ion-avatar>
-        <h2>Penjemputan</h2>
-        <h3>Dalam proses penjemputan</h3>
-      </ion-item>
-      <ion-item class="icondisable" [hidden]="jemput">
-        <ion-avatar item-start>
-          <div class="lingkaran"></div>
-        </ion-avatar>
-        <h2>Penjemputan</h2>
-        <h3>Tanggal : {{tanggalPenjemputan}} </h3>
-      </ion-item>
+        <h2 class="title">Penjemputan</h2>
+        <h3 class="subs">Dalam proses penjemputan</h3>
+      </ion-card>
 
-      <ion-item class="iconable" [hidden]="!diagnosa">
-        <ion-avatar item-start>
-          <div class="lingkaran1"></div>
-        </ion-avatar>
-        <h2>Diagnosa</h2>
-        <h3>Dalam proses diagnosa</h3>
-      </ion-item>
-      <ion-item class="icondisable" [hidden]="diagnosa">
+      <ion-card class="icondisable" [hidden]="jemput">
           <ion-avatar item-start>
             <div class="lingkaran"></div>
           </ion-avatar>
-          <h2>Diagnosa</h2>
-          <h3 *ngIf="data.dateDiagnosa">Tanggal : {{tanggalDiagnosa}}</h3>
-          <h3 *ngIf="!data.dateDiagnosa">Tanggal : -</h3>
-        </ion-item>
+          <h2 class="title">Penjemputan</h2>
+          <h3 class="subs">Tanggal : {{tanggalPenjemputan}} </h3>
+        </ion-card>
 
-      <ion-item class="iconable" [hidden]="!konfirmasi">
-        <ion-avatar item-start>
-          <div class="lingkaran1"></div>
-        </ion-avatar>
-        <h2>Konfirmasi</h2>
-        <!-- <h3>Tanggal : -</h3> -->
-        <h3>Harga   : Rp{{data.harga}}</h3>
-        <h3 class="diagnosa">Hasil diagnosa   : {{data.tipeKerusakan}}</h3>
-        <button ion-button color="secondary" [disabled]="!konfirmasi" (click)="Terima()">Terima</button>
-        <button ion-button color="danger" [disabled]="!konfirmasi" (click)="Batal()">Batal</button>
-      </ion-item>
-      <ion-item class="icondisable" [hidden]="konfirmasi">
-        <ion-avatar item-start>
-          <div class="lingkaran"></div>
-        </ion-avatar>
-        <h2>Konfirmasi</h2>
-        <!-- <h3>Tanggal : -</h3> -->
-        <h3 *ngIf="data.harga">Harga   :  Rp{{data.harga}}</h3>
-        <h3 *ngIf="!data.harga">Harga   :  -</h3>
-        <!-- <button ion-button color="secondary" [disabled]="konfirmasi">Terima</button>
-        <button ion-button color="danger" [disabled]="konfirmasi">Batal</button> -->
-      </ion-item>
+      <ion-card class="iconable" [hidden]="!diagnosa">
+            <ion-avatar item-start>
+              <div class="lingkaran1"></div>
+            </ion-avatar>
+            <h2 class="title">Diagnosa</h2>
+            <h3 class="subs">Dalam proses diagnosa</h3>
+        </ion-card>
+  
+      <ion-card class="icondisable" [hidden]="diagnosa">
+            <ion-avatar item-start>
+              <div class="lingkaran"></div>
+            </ion-avatar>
+            <h2 class="title">Diagnosa</h2>
+            <h3 class="subs" *ngIf="data.dateDiagnosa">Tanggal : {{tanggalDiagnosa}}</h3>
+            <h3 class="subs" *ngIf="!data.dateDiagnosa">Tanggal : -</h3>
+          </ion-card>
 
-      <ion-item class="iconable" *ngIf=tungguKonfirm>
-        <ion-avatar item-start>
-          <div class="lingkaran1"></div>
-        </ion-avatar>
-        <h2 class="pengerjaan">Pengerjaan dimasukan dalam antrian</h2>
-      </ion-item>
+      <ion-card class="iconable" [hidden]="!konfirmasi">
+              <ion-avatar item-start>
+                <div class="lingkaran1"></div>
+              </ion-avatar>
+              <h2 class="title">Konfirmasi</h2>
+              <!-- <h3>Tanggal : -</h3> -->
+              <h3 class="subs">Harga   : Rp{{data.harga}}</h3>
+              <h3 class="diagnosa">Hasil diagnosa   : {{data.tipeKerusakan}}</h3>
+              <button ion-button color="secondary" [disabled]="!konfirmasi" (click)="Terima()">Terima</button>
+              <button ion-button color="danger" [disabled]="!konfirmasi" (click)="Batal()">Batal</button>
+      </ion-card>
+      <ion-card class="icondisable" [hidden]="konfirmasi">
+          <ion-avatar item-start>
+            <div class="lingkaran"></div>
+          </ion-avatar>
+          <h2 class="title">Konfirmasi</h2>
+          <!-- <h3>Tanggal : -</h3> -->
+          <h3 class="subs" *ngIf="data.harga">Harga   :  Rp{{data.harga}}</h3>
+          <h3 class="subs" *ngIf="!data.harga">Harga   :  -</h3>
+          <!-- <button ion-button color="secondary" [disabled]="konfirmasi">Terima</button>
+          <button ion-button color="danger" [disabled]="konfirmasi">Batal</button> -->
+        </ion-card>
 
-      <ion-item class="iconable" [hidden]="!reparasi">
-        <ion-avatar item-start>
-          <div class="lingkaran1"></div>
-        </ion-avatar>
-        <h2>Reparasi</h2>
-        <h3>Reparasi dimulai tanggal : {{tanggalReparasi}}</h3>
-        <h3 *ngIf="countDays > 0">Perkiraan Selesai : {{countDays}} hari lagi</h3>
-        <h3 *ngIf="countDays <= 0">Hubungi kami</h3>
-      </ion-item>
-      <ion-item class="icondisable" [hidden]="reparasi">
-        <ion-avatar item-start>
-          <div class="lingkaran"></div>
-        </ion-avatar>
-        <h2>Reparasi</h2>
-        <h3 *ngIf="data.dateMulaiReparasi">Reparasi dimulai tanggal : {{tanggalReparasi}}</h3>
-        <h3 *ngIf="!data.dateMulaiReparasi">Reparasi dimulai tanggal : -</h3>
-      </ion-item>
+        <ion-card class="iconable" *ngIf=tungguKonfirm>
+            <ion-avatar item-start>
+              <div class="lingkaran1"></div>
+            </ion-avatar>
+            <h2 class="pengerjaan">Pengerjaan dimasukan dalam antrian</h2>
+          </ion-card>
 
-      <ion-item class="iconable" [hidden]="!selesai">
-        <ion-avatar item-start>
-          <div class="lingkaran1"></div>
-        </ion-avatar>
-        <h2>Selesai</h2>
-        <h3>Tanggal : {{tanggalSelesai}}</h3>
-        <h3>Garansi : -</h3>
-      </ion-item>
-      <ion-item class="icondisable" [hidden]="selesai">
-        <ion-avatar item-start>
-          <div class="lingkaran"></div>
-        </ion-avatar>
-        <h2>Selesai</h2>
-        <h3 *ngIf="data.dateSelesai">Tanggal : {{tanggalSelesai}}</h3>
-        <h3 *ngIf="!data.dateSelesai">Tanggal : - </h3>
-        <!-- <h3 *ngIf="data.status == 8">Barang Sudah diambil</h3> -->
-        <h3>Garansi :-</h3>
-      </ion-item>
+          <ion-card class="iconable" [hidden]="!reparasi">
+              <ion-avatar item-start>
+                <div class="lingkaran1"></div>
+              </ion-avatar>
+              <h2 class="title">Reparasi</h2>
+              <h3 class="subs">Reparasi dimulai tanggal : {{tanggalReparasi}}</h3>
+              <h3 class="subs" *ngIf="countDays > 0">Perkiraan Selesai : {{countDays}} hari lagi</h3>
+              <h3 class="subs" *ngIf="countDays <= 0">Hubungi kami</h3>
+            </ion-card>
+
+            <ion-card class="icondisable" [hidden]="reparasi">
+                <ion-avatar item-start>
+                  <div class="lingkaran"></div>
+                </ion-avatar>
+                <h2 class="title">Reparasi</h2>
+                <h3 class="subs" *ngIf="data.dateMulaiReparasi">Reparasi dimulai tanggal : {{tanggalReparasi}}</h3>
+                <h3 class="subs" *ngIf="!data.dateMulaiReparasi">Reparasi dimulai tanggal : -</h3>
+              </ion-card>
+
+              <ion-card class="iconable" [hidden]="!selesai">
+                  <ion-avatar item-start>
+                    <div class="lingkaran1"></div>
+                  </ion-avatar>
+                  <h2 class="title">Selesai</h2>
+                  <h3 class="subs">Tanggal : {{tanggalSelesai}}</h3>
+                  <h3 class="subs">Garansi : -</h3>
+              </ion-card>
+            
+      <ion-card class="icondisable" [hidden]="selesai">
+          <ion-avatar item-start>
+            <div class="lingkaran"></div>
+          </ion-avatar>
+          <h2 class="title">Selesai</h2>
+          <h3 class="subs" *ngIf="data.dateSelesai">Tanggal : {{tanggalSelesai}}</h3>
+          <h3 class="subs" *ngIf="!data.dateSelesai">Tanggal : - </h3>
+          <!-- <h3 *ngIf="data.status == 8">Barang Sudah diambil</h3> -->
+          <h3 class="subs">Garansi :-</h3>
+        </ion-card>
+
+    <ion-list>
       
       <div *ngIf="data.status == 7 || data.status == 8" padding (click)="review()">
         <button ion-button block padding [disabled]="false">Review</button>

@@ -72,7 +72,7 @@
 
               <h5 class="head">Alamat Penjemputan</h5>
               <ion-item>
-                <ion-input type="text" [(ngModel)]="alamat" #address ="ngModel" [ngModelOptions]="{standalone: true}" placeholder="Ex. IPB dramaga"></ion-input>
+                <ion-input type="text" [(ngModel)]="alamat" #address ="ngModel" [ngModelOptions]="{standalone: true}" placeholder="Ex. IPB dramaga" required></ion-input>
               </ion-item>
               <p ion-text [hidden]="keluh.valid || submitted == false" color="danger" padding-left class="Warning">
                 Alamat harus diisi
@@ -83,7 +83,7 @@
                 Ambil Foto
               </button>
               <p ion-text [hidden]="validFoto.valid || submitted == false" color="danger" padding-left class="Warning">
-                Foto harus diisi
+                Foto harus diupload
               </p>
               <img [src]="image" *ngIf="image"/>
           </ion-list>

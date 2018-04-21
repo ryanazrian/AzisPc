@@ -13,10 +13,20 @@
 </ion-header>
 
 
-<ion-content padding>
-  <img  src="assets/imgs/rusak.jpeg"/>
-  <!-- <img [src]=this.gambar+data.foto *ngIf="data.foto"  width="460" height="300"/> -->
-  <div padding>
+<ion-content >
+  <img *ngIf="!data.foto" src="assets/imgs/rusak.jpeg"/>
+  <div *ngIf="data.foto">
+    <ion-slides pager class="slidas">
+        <ion-slide>
+            <img [src]=this.gambar+data.foto *ngIf="data.foto"  width="460" height="300"/>
+            <h3 class="tulisan">barangKu</h3>
+        </ion-slide>
+        <ion-slide *ngIf="data.fotoReparasi">
+            <img [src]=this.gambar+data.foto *ngIf="data.foto"  width="460" height="300"/>
+        </ion-slide>
+      </ion-slides>
+    </div>
+    <div padding>
     <h2 class="judul"> {{data.namaBarang}} </h2>
       <!-- <div class="row">
         <div col-4>Nomor Telepon</div>
@@ -51,7 +61,7 @@
         <!-- <div col-7 *ngIf=data.harga>Rp data.harga</div> -->
         <div col-7>Rp {{data.harga}}</div>
       </div>
-      <div class="row">
+      <div *ngIf="data.status != 4" class="row">
         <div col-4>Garansi</div>
         <div col-1>:</div>
         <div col-7>X Hari</div>

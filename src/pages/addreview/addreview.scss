@@ -1,6 +1,14 @@
 page-addreview {
+    ion-content{
+        margin-top: 0 !important;
+    }
     .textarea{
         height: 20vw;
         border: 2vw;
+    }
+
+    .textareas{
+        margin: 3vw;
+        width: inherit;
     }
 }

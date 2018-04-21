@@ -11,16 +11,11 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <h5 class="head">Review</h5>
-  <ion-item>
+  <ion-item class="textareas" >
     <ion-textarea class="textarea" type="text" [(ngModel)]="alamat"  [ngModelOptions]="{standalone: true}" placeholder="Review"></ion-textarea>
   </ion-item>
 
-  <h5 class="head">Unggah Hasil Service</h5>
-    <button ion-button icon-left (click)="tambahGambar()">
-      <ion-icon name="camera"></ion-icon>
-        Ambil Foto
-    </button>
     <button (click)="repair(repairForm)" ion-button full>Submit</button>
 </ion-content>

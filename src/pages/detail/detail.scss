@@ -3,9 +3,9 @@ page-detail {
         text-align: center;
     }
 
-    pre {
-        font-family: roboto;
-    }
+    font-family: roboto;
+}
+            pre {
 
     .iconable{
         color: black;
@@ -62,5 +62,12 @@ page-detail {
         max-width: 100%;
         height: 115vw;
         max-height: 100%;
+    }
+
+    ion-content {
+        margin-top: 0vw !important;
+        background-color: $azizbg !important;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 }

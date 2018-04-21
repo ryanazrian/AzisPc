@@ -15,6 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DetailriwayatPage {
   data : any;
+  gambar:string =  "http://azizpc.codepanda.web.id/";
 
   tanggalReparasi : any;
   tanggalDiagnosa : any;

@@ -228,7 +228,7 @@ export class AddrepairPage {
     console.log(this.token);
     // console.log(this.goo.f.lang);
 
-    if(form.valid){
+    if(form.valid && this.validFoto){
       loading.present();
 
       var kelengkapans = [];

@@ -37,9 +37,30 @@ page-detail {
         margin-top: 25%;
     }
 
-    .hasil_diagnosa {
-        max-width: 50%;
+    .diagnosa{
+        max-width: 90%;
+        overflow: auto;
+        // text-;
     }
 
+    .kodeService{
+        text-align: center;
+        font-weight: bold;
+        
+    }
 
+    .slidas{
+        height: 50%;
+        
+    }
+
+}
+
+.swiper-slide {
+    img {
+        width: inherit !important;
+        max-width: 100%;
+        height: 115vw;
+        max-height: 100%;
+    }
 }

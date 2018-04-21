@@ -15,7 +15,14 @@
 
 <ion-content>
   <img *ngIf="!data.foto" src="assets/imgs/rusak.jpeg"/>
-  <img [src]=this.gambar+data.foto *ngIf="data.foto"  width="460" height="300"/>
+  <ion-slides pager class="slidas" *ngIf="data.foto">
+    <ion-slide>
+        <img [src]=this.gambar+data.foto *ngIf="data.foto"  width="460" height="300"/>
+    </ion-slide>
+    <ion-slide *ngIf="data.fotoReparasi">
+        <img [src]=this.gambar+data.foto *ngIf="data.foto"  width="460" height="300"/>
+    </ion-slide>
+  </ion-slides>
   <div padding>
     <h2 class="judul"> {{data.namaBarang}} </h2>
       <!-- <div class="row">
@@ -39,17 +46,21 @@
         <div col-1>:</div>
         <div col-7> {{data.kelengkapan}}</div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div col-4>Jenis servis</div>
         <div col-1>:</div>
         <div col-7>{{data.tipeKerusakan}}</div>
-      </div>
+      </div> -->
       <div class="row">
         <div col-4>Total biaya</div>
         <div col-1>:</div>
         <div col-7 *ngIf=!data.harga>-</div>
         <div col-7 *ngIf=data.harga>Rp{{data.harga}}</div>
       </div>
+    </div>
+
+    <div class="kodeService">
+        <h2>{{data.kodeOrder}}</h2>
     </div>
     
     <h2 class="judul"> Progres </h2>
@@ -93,7 +104,7 @@
         <h2>Konfirmasi</h2>
         <!-- <h3>Tanggal : -</h3> -->
         <h3>Harga   : Rp{{data.harga}}</h3>
-        <h3 class="hasil_diagnosa">Hasil diagnosa   : {{data.tipeKerusakan}}</h3>
+        <h3 class="diagnosa">Hasil diagnosa   : {{data.tipeKerusakan}}</h3>
         <button ion-button color="secondary" [disabled]="!konfirmasi" (click)="Terima()">Terima</button>
         <button ion-button color="danger" [disabled]="!konfirmasi" (click)="Batal()">Batal</button>
       </ion-item>

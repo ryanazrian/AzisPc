@@ -107,8 +107,8 @@
               <!-- <h3>Tanggal : -</h3> -->
               <h3 class="subs">Harga   : Rp{{data.harga}}</h3>
               <h3 class="diagnosa">Hasil diagnosa   : {{data.tipeKerusakan}}</h3>
-              <button ion-button color="secondary" [disabled]="!konfirmasi" (click)="Terima()">Terima</button>
-              <button ion-button color="danger" [disabled]="!konfirmasi" (click)="Batal()">Batal</button>
+              <button ion-button class="buttons" color="secondary" [disabled]="!konfirmasi" (click)="Terima()">Terima</button>
+              <button ion-button class="buttons" color="danger" [disabled]="!konfirmasi" (click)="Batal()">Batal</button>
       </ion-card>
       <ion-card class="icondisable" [hidden]="konfirmasi">
           <ion-avatar item-start>

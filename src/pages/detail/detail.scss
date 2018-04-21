@@ -42,6 +42,8 @@ page-detail {
     .diagnosa{
         max-width: 90%;
         overflow: auto;
+        margin-left : 13vw;
+        margin-bottom: 3vw;
         // text-;
     }
 
@@ -71,6 +73,17 @@ page-detail {
         padding-top: -9vw;
     }
 
+    .pengerjaan{
+        margin: 4px 0;
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: #222;
+        margin-left: 13vw;
+        margin-top: -4vw;
+        margin-bottom: 4vw;
+        padding-top: -9vw;
+    }
+
     .subs{
         margin-left : 13vw;
         margin-bottom: 3vw;
@@ -79,6 +92,16 @@ page-detail {
     .headers{
         margin-left: -5vw;
         margin-top: 2vw;
+    }
+
+    .buttons{
+        border-radius: 2px;
+        overflow: hidden;
+        height: 3rem;
+        left: 23vw;
+        font-size: 1.3rem;
+        font-weight: 500;
+        text-transform: uppercase;
     }
 
 }

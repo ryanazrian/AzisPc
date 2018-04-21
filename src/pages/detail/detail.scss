@@ -50,7 +50,8 @@ page-detail {
     .kodeService{
         text-align: center;
         font-weight: bold;
-        
+        font-size: 6vw;
+        padding: 3vw;
     }
 
     .slidas{
@@ -102,6 +103,29 @@ page-detail {
         font-size: 1.3rem;
         font-weight: 500;
         text-transform: uppercase;
+    }
+
+    .stuff{
+        text-align: center;
+        color: #0077bd;
+        font-size: 6vw;
+        padding-top: 2vw;
+    }
+
+    [col-4] {
+        padding: 2px;
+        padding-top: 1vw;
+    }
+
+    [col-6]{
+        padding-top: 1vw;
+    }
+
+    .cardBarang{
+        width: calc(100% - 0px);
+        border-radius: 20px;
+        padding-left : 2vw;
+        margin-left : 0vw;
     }
 
 }

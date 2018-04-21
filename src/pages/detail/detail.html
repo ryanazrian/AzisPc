@@ -26,7 +26,8 @@
     </ion-slides>
   </div>
   <div padding>
-    <h2 class="judul"> {{data.namaBarang}} </h2>
+    <ion-card class="cardBarang">
+    <h2 class="stuff"> {{data.namaBarang}} </h2>
       <!-- <div class="row">
         <div col-4>Nomor Telepon</div>
         <div col-1>:</div>
@@ -34,18 +35,18 @@
       </div> -->
       <div class="row">
         <div col-4>Tanggal masuk</div>
-        <div col-1>:</div>
-        <div col-7>{{tanggalIn}}</div>
+        <div col-1></div>
+        <div col-6>{{tanggalIn}}</div>
       </div>
       <div class="row">
         <div col-4>Tanggal selesai</div>
-        <div col-1>:</div>
-        <div col-7 *ngIf="data.dateSelesai">{{tanggalSelesai}}</div>
-        <div col-7 *ngIf="!data.dateSelesai">-</div>
+        <div col-1></div>
+        <div col-6 *ngIf="data.dateSelesai">{{tanggalSelesai}}</div>
+        <div col-6 *ngIf="!data.dateSelesai">-</div>
       </div>
       <div class="row">
         <div col-4>Kelengkapan</div>
-        <div col-1>:</div>
+        <div col-1></div>
         <div col-7> {{data.kelengkapan}}</div>
       </div>
       <!-- <div class="row">
@@ -55,15 +56,17 @@
       </div> -->
       <div class="row">
         <div col-4>Total biaya</div>
-        <div col-1>:</div>
+        <div col-1></div>
         <div col-7 *ngIf=!data.harga>-</div>
         <div col-7 *ngIf=data.harga>Rp{{data.harga}}</div>
       </div>
+    
+          <h2 class="kodeService" style="text-align: center">{{data.kodeOrder}}</h2>
+          
+    </ion-card>
     </div>
 
-    <div class="kodeService" style="text-align: center">
-        <h2>{{data.kodeOrder}}</h2>
-    </div>
+
     
     <h2 class="judul"> Progres </h2>
     <ion-card class="iconable" [hidden]="!jemput">

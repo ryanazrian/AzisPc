@@ -3,12 +3,45 @@ page-addreview {
         margin-top: 0 !important;
     }
     .textarea{
-        height: 20vw;
-        border: 2vw;
+        height: 32vw;
+        border: 0.2vw;
+        border-style: solid;
+        border-color:#d8d8d8;
+        border-radius: 20px;
     }
 
     .textareas{
         margin: 3vw;
         width: inherit;
+        border: dimgray;
+    }
+
+    .head{
+        margin : 1vw;
+        font-size: 4.2vw;
+        color: white;
+    }
+
+    .buttons{
+        max-width: 65vw;
+        margin-left: 16vw;
+    }
+
+    .desc{
+        border: 0;
+        height: 7vw;
+        font-size: small;
+        border-radius: 13px;
+        /* margin: 3vw; */
+        margin-left: 8vw;
+        margin-top: 3vw;
+        font-family: inherit;
+        font-style: inherit;
+        font-variant: inherit;
+        line-height: 1;
+        text-transform: none;
+        cursor: pointer;
+        -webkit-appearance: button;
+        background-color: blue;
     }
 }

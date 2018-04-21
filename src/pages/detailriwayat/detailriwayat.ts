@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AddreviewPage } from '../addreview/addreview';
+
 
 /**
  * Generated class for the DetailriwayatPage page.
@@ -24,11 +26,16 @@ export class DetailriwayatPage {
   tanggalPenjemputan1 : any;
   tanggalSelesai : any;
 
+  garansi: any;
+  dateNow: any;
+  countDays: any;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.data = this.navParams.data;
     console.log(this.data);
     this.tanggal();
+    this.coutdown();
   }
 
   ionViewDidLoad() {
@@ -38,6 +45,33 @@ export class DetailriwayatPage {
   tanggal(){
     this.tanggalSelesai = new Date(this.data.dateSelesai).toDateString();
     this.tanggalIn = new Date(this.data.dateIn).toDateString();
+  }
+
+  review(){
+    this.navCtrl.push(AddreviewPage);
+  }
+
+  coutdown(){
+
+    var one_day=1000*60*60*24
+    this.garansi = new Date(new Date(this.data.dateOut).getTime()+(7*one_day));
+
+    console.log(this.garansi);
+
+    this.dateNow = new Date();
+
+     var diff = Math.abs(this.dateNow - this.garansi)/(one_day);
+     this.countDays = diff.toFixed();
+     if(this.countDays >=0){
+       this.countDays;
+     }
+     else{
+       this.countDays = 0;
+     }
+     console.log(this.countDays);
+
+
+     
   }
 
 }

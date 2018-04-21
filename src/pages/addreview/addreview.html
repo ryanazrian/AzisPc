@@ -6,16 +6,17 @@
 -->
 <ion-header>
   <ion-navbar color="nav">
-    <ion-title>addreview</ion-title>
+    <ion-title>Review</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
-  <h5 class="head">Review</h5>
+  <button class="desc"><h5 class="head">Deskripsi Ulasan</h5></button>
+  
   <ion-item class="textareas" >
-    <ion-textarea class="textarea" type="text" [(ngModel)]="alamat"  [ngModelOptions]="{standalone: true}" placeholder="Review"></ion-textarea>
+    <ion-textarea class="textarea" type="text" [(ngModel)]="reviews"  [ngModelOptions]="{standalone: true}" placeholder="Silahkan sampaikan ulasan anda kepada pengguna lain.."></ion-textarea>
   </ion-item>
 
-    <button (click)="repair(repairForm)" ion-button full>Submit</button>
+    <button class="buttons" (click)="repair(repairForm)" ion-button full>Submit</button>
 </ion-content>

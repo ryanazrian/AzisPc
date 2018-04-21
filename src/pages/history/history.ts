@@ -82,7 +82,7 @@ export class HistoryPage {
 
       this.batal = [];
       for(var i = 0, j= 0; i < datas.length;i++){
-        if(datas[i].status == 4 || datas[i].status == 9){
+        if(datas[i].status == 4 || datas[i].status == 8){
             this.batal[j] = datas[i];
             j++;
         }

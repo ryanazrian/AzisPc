@@ -91,7 +91,7 @@ export class HomePage {
 
       this.servisan = [];
       for(var i = 0, j= 0; i < datas.length;i++){
-        if(datas[i].status != 4){
+        if(datas[i].status != 4 && datas[i].status!=8){
             this.servisan[j] = datas[i];
             j++;
         }

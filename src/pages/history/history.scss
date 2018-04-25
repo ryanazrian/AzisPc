@@ -22,11 +22,11 @@ page-history {
 
     .status_barang{
         display: table;
-        height: 80px;
+        height: 5em;
         width: 100%;
         text-align: right;
         //padding: 6vw;
-        padding-right: 3vw;
+        padding-right: 1em;
         //border: 2px dashed #f69c55;
     }
     .help {
@@ -54,6 +54,8 @@ page-history {
         margin-right: 2vw;
         color : #28A745;
     }
+
+    
 
     .myCard{
         border-radius: 20px;

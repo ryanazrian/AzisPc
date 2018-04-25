@@ -69,7 +69,7 @@
       </div>
     </div>
 
-    <div *ngIf="data.status == 7 || data.status == 8" padding (click)="review()">
+    <div *ngIf="data.isReviewed != 1 && data.status != 4" padding (click)="review()">
         <button ion-button block padding [disabled]="false">Review</button>
       </div>
 

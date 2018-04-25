@@ -14,9 +14,10 @@
 <ion-content>
   <button class="desc"><h5 class="head">Deskripsi Ulasan</h5></button>
   
-  <ion-item class="textareas" >
-    <ion-textarea class="textarea" type="text" [(ngModel)]="reviews"  [ngModelOptions]="{standalone: true}" placeholder="Silahkan sampaikan ulasan anda kepada pengguna lain.."></ion-textarea>
-  </ion-item>
-
-    <button class="buttons" (click)="repair(repairForm)" ion-button full>Submit</button>
+  <form #reviewForm="ngForm" novalidate>
+    <ion-item class="textareas" >
+      <ion-textarea class="textarea" type="text" [(ngModel)]="reviews"  [ngModelOptions]="{standalone: true}" placeholder="Silahkan sampaikan ulasan anda kepada pengguna lain.."></ion-textarea>
+    </ion-item>
+  </form>
+    <button class="buttons" (click)="review(reviewForm)" ion-button full>Submit</button>
 </ion-content>

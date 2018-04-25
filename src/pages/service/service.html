@@ -32,26 +32,28 @@
   </ion-card>
   
   <!-- card prames -->
-  <ion-card class="cont">
+  <ion-card class="cont" *ngFor="let data of datas">
     <div class="row level1">
       <div col-2>
           <img class="display_picture" src="assets/imgs/man1.jpg">
       </div>
       <div col-10>
         <div class="row name">
-          Ricky
+          {{data.customerName}}
         </div>
         <div class="row date">
-            2 Maret 2017
+            {{data.created_at.date}}
         </div>
       </div>
     </div>
     <div class="row">
      <div col-6>
-        <img class="image" src="assets/imgs/awal.jpg">
+        <img class="image" *ngIf="!data.fotoSebelum" src="assets/imgs/awal.jpg">
+        <img class="image" [src]=this.gambar+data.fotoSebelum *ngIf="data.fotoSebelum"/>
       </div>
       <div col-6>
-        <img class="image" src="assets/imgs/bongkar.jpg">
+        <img class="image" *ngIf="!data.fotoSesudah" src="assets/imgs/bongkar.jpg">
+        <img class="image" [src]=this.gambar+data.fotoSesudah *ngIf="data.fotoSesudah"/>
       </div> 
     </div>
     <div class="row level1">
@@ -60,7 +62,7 @@
       </div>
       <div col-10>
         <div class="reviews">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          {{data.content}}
         </div>
       </div>
     </div>

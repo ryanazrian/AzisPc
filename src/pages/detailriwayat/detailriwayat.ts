@@ -48,7 +48,7 @@ export class DetailriwayatPage {
   }
 
   review(){
-    this.navCtrl.push(AddreviewPage);
+    this.navCtrl.push(AddreviewPage, this.data);
   }
 
   coutdown(){
